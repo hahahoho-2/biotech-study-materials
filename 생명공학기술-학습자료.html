@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>생명공학기술 16가지 탐구 학습자료 (고등학교 1학년 기술)</title>
+<style>
+:root{
+  --bg:#f7f8fa; --card:#ffffff; --text:#1d2330; --muted:#5b6475; --line:#e2e6ee;
+  --brand:#0f6e56; --brand-soft:#e1f5ee;
+  --purple:#534ab7; --purple-soft:#eeedfe;
+  --amber:#854f0b; --amber-soft:#faeeda;
+  --coral:#993c1d; --coral-soft:#faece7;
+  --blue:#185fa5; --blue-soft:#e6f1fb;
+  --gray-soft:#f1efe8; --radius:12px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;line-height:1.8;font-size:16px}
+header.hero{background:linear-gradient(135deg,#0f6e56,#1d9e75);color:#fff;padding:40px 20px 32px}
+header.hero .in{max-width:1000px;margin:0 auto}
+header.hero h1{margin:0 0 8px;font-size:30px;font-weight:700}
+header.hero p{margin:0;opacity:.95}
+nav.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+nav.top .in{max-width:1000px;margin:0 auto;padding:8px 14px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+nav.top a{font-size:14px;text-decoration:none;color:var(--text);padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:#fff}
+nav.top a:hover{background:var(--brand-soft);border-color:var(--brand)}
+nav.top input{margin-left:auto;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;min-width:200px;font-family:inherit}
+main{max-width:1000px;margin:0 auto;padding:22px 16px 60px}
+section.area{margin:36px 0}
+section.area>h2{font-size:24px;margin:0 0 4px;padding-bottom:8px;border-bottom:3px solid var(--brand)}
+section.area>.lead{color:var(--muted);margin:8px 0 18px}
+.topic{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:18px 0}
+.topic h3{margin:0 0 6px;font-size:21px;display:flex;align-items:center;gap:10px}
+.topic h3 .no{background:var(--brand);color:#fff;border-radius:8px;min-width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;font-size:17px}
+.topic h4{margin:18px 0 6px;font-size:16px;color:var(--brand)}
+.area-chip{font-size:12px;padding:2px 10px;border-radius:999px;background:var(--purple-soft);color:#3c3489;font-weight:400}
+.easy{background:#fff8e1;border:1px solid #f3dd9a;border-radius:10px;padding:10px 14px;margin:10px 0;color:#4a3a00}
+.easy b.t{display:block;margin-bottom:2px;color:#7a5a00}
+.terms{margin:8px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.terms .row{display:grid;grid-template-columns:170px 1fr;border-bottom:1px solid var(--line)}
+.terms .row:last-child{border-bottom:0}
+.terms .row>div{padding:7px 12px}
+.terms .row>div:first-child{background:var(--blue-soft);font-weight:600;color:#0c447c}
+ol.steps{padding-left:0;list-style:none;counter-reset:s;margin:6px 0}
+ol.steps li{counter-increment:s;position:relative;padding:3px 0 3px 36px;margin:2px 0}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:5px;width:24px;height:24px;border-radius:50%;background:var(--brand);color:#fff;font-size:13px;text-align:center;line-height:24px}
+ul{margin:6px 0;padding-left:20px}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:15px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--gray-soft);font-weight:600}
+.tw{overflow-x:auto}
+details{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:#fbfcfd}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600;color:var(--purple);list-style:none}
+details summary::before{content:"Q. ";font-weight:700}
+details[open] summary{border-bottom:1px solid var(--line)}
+details .ans{padding:10px 16px}
+.note{border-left:4px solid var(--amber);background:var(--amber-soft);padding:8px 14px;margin:10px 0;border-radius:0 8px 8px 0;color:#412402}
+.warn{border-left:4px solid var(--coral);background:var(--coral-soft);padding:8px 14px;margin:10px 0;border-radius:0 8px 8px 0;color:#4a1b0c}
+.oneline{background:var(--purple-soft);border-radius:8px;padding:10px 14px;margin:14px 0 0;color:#26215c}
+.oneline b{color:var(--purple)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.mini{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:14px 0}
+.map a{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:10px 14px}
+.map a:hover{border-color:var(--brand);box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.map b{color:var(--brand)}
+.map span{display:block;font-size:13px;color:var(--muted)}
+svg{max-width:100%;height:auto}
+figure{margin:12px 0}
+figcaption{font-size:13px;color:var(--muted)}
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.photos figure{margin:0;border:1px solid var(--line);border-radius:10px;padding:8px;background:#fff}
+.photos img{width:100%;height:180px;object-fit:contain;background:#eee;border-radius:6px}
+.quiz .q{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:12px 0;background:#fff}
+.quiz .opts{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.quiz button{font-family:inherit;font-size:15px;text-align:left;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer}
+.quiz button:hover{background:var(--blue-soft)}
+.quiz button.ok{background:#e1f5ee;border-color:#0f6e56}
+.quiz button.no{background:#fcebeb;border-color:#a32d2d}
+.quiz .fb{margin-top:8px;font-size:14px;color:var(--muted)}
+#score{font-weight:700;color:var(--brand)}
+footer{max-width:1000px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+.hidden{display:none!important}
+@media (max-width:640px){header.hero h1{font-size:24px}nav.top input{width:100%;margin-left:0}.terms .row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="in">
+  <h1>생명공학기술 16가지 탐구 학습자료</h1>
+  <p>고등학교 1학년 기술 · 쉬운 말로 이해하고, 정확한 학술 용어로 정리합니다.</p>
+</div></header>
+
+<nav class="top"><div class="in">
+  <a href="#map">전체 목록</a>
+  <a href="#basic">기초 개념</a>
+  <a href="#techs">16가지 기술</a>
+  <a href="#compare">개념 비교</a>
+  <a href="#quizsec">퀴즈</a>
+  <a href="#inquiry">탐구 질문</a>
+  <input id="search" type="search" placeholder="검색 (예: 줄기세포)" aria-label="검색">
+</div></nav>
+
+<main>
+
+<section class="area" id="map">
+  <h2>16가지 생명공학기술 목록</h2>
+  <p class="lead">카드를 누르면 해당 주제로 이동합니다. 각 주제는 <b>쉽게 말하면 → 핵심 용어 → 어떻게 이루어질까요 → 어디에 쓰일까요 → 알아둘 점</b> 순서로 설명합니다.</p>
+  <div class="map">
+    <a href="#t1"><b>1) 합성생물학</b><span>유전 부품을 설계해 조립</span></a>
+    <a href="#t2"><b>2) 텔로미어</b><span>염색체 끝의 보호 장치</span></a>
+    <a href="#t3"><b>3) 배양육</b><span>세포를 키워 만드는 고기</span></a>
+    <a href="#t4"><b>4) 곤충육</b><span>곤충을 단백질 식품으로</span></a>
+    <a href="#t5"><b>5) 줄기세포</b><span>여러 세포로 변신하는 세포</span></a>
+    <a href="#t6"><b>6) 세포융합(면역세포치료제)</b><span>세포를 합치고, 면역세포를 이용</span></a>
+    <a href="#t7"><b>7) 유전자 재조합(인슐린)</b><span>DNA를 자르고 붙이기</span></a>
+    <a href="#t8"><b>8) 핵이식</b><span>복제 동물을 만드는 기술</span></a>
+    <a href="#t9"><b>9) 식물 공장</b><span>건물 안에서 키우는 식물</span></a>
+    <a href="#t10"><b>10) 스마트팜</b><span>ICT를 접목한 농업</span></a>
+    <a href="#t11"><b>11) 형질전환 동물</b><span>외래 유전자를 가진 동물</span></a>
+    <a href="#t12"><b>12) 유전자 치료</b><span>유전자를 이용한 치료</span></a>
+    <a href="#t13"><b>13) 컴퓨터 단층 촬영(CT)</b><span>몸의 단면 사진</span></a>
+    <a href="#t14"><b>14) 바이오프린팅</b><span>세포를 쌓는 3D 프린팅</span></a>
+    <a href="#t15"><b>15) 나노공학 활용</b><span>아주 작은 크기의 물질 이용</span></a>
+    <a href="#t16"><b>16) 조직 배양</b><span>조각에서 식물체·조직 얻기</span></a>
+  </div>
+  <div class="note">연도와 수치, 승인 사례는 작성 시점의 일반적인 설명입니다. 의학·식품 규제처럼 바뀔 수 있는 내용은 공식 자료로 다시 확인하세요.</div>
+</section>
+
+<!-- ===================== 기초 개념 ===================== -->
+<section class="area" id="basic">
+  <h2>먼저 알아둘 기초 개념</h2>
+  <p class="lead">아래 16가지 기술을 이해하는 데 꼭 필요한 말입니다. <b>큰 것에서 작은 것</b> 순서를 기억하세요.</p>
+
+  <div class="topic" data-k="세포 핵 염색체 dna 유전자 게놈 포함관계">
+    <h3>세포 ⊃ 핵 ⊃ 염색체 ⊃ DNA ⊃ 유전자</h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>세포는 우리 몸을 이루는 아주 작은 방입니다. 그 방 안에 핵이라는 '보관실'이 있고, 보관실 안에 염색체라는 '책'이 있어요. 책에는 DNA라는 '글자'가 적혀 있고, 그중 한 가지 요리법 같은 부분이 유전자입니다. 한 생물이 가진 모든 책의 내용 전체를 게놈이라고 합니다.</div>
+    <figure>
+    <svg viewBox="0 0 680 560" role="img" aria-label="세포, 핵, 염색체, DNA, 유전자의 포함 관계">
+      <rect x="40" y="10" width="600" height="84" rx="8" fill="#fff" stroke="#cfd4de"/>
+      <ellipse cx="100" cy="52" rx="52" ry="34" fill="#eeedfe" stroke="#534ab7"/>
+      <circle cx="100" cy="52" r="15" fill="#cecbf6" stroke="#534ab7" stroke-width="1.5"/>
+      <text x="190" y="44" font-size="17" font-weight="700" fill="#1d2330">세포</text>
+      <text x="190" y="68" font-size="14" fill="#5b6475">생물의 기본 단위</text>
+      <text x="620" y="56" font-size="13" fill="#5b6475" text-anchor="end">핵, 미토콘드리아 등 포함</text>
+      <path d="M100 96v22" stroke="#888" stroke-width="2"/><path d="M95 112l5 8 5-8" fill="none" stroke="#888" stroke-width="2"/>
+      <rect x="40" y="122" width="600" height="84" rx="8" fill="#fff" stroke="#cfd4de"/>
+      <circle cx="100" cy="164" r="36" fill="#eeedfe" stroke="#534ab7" stroke-width="1.5"/>
+      <path d="M83 153l10 10m0-10l-10 10M107 151l10 10m0-10l-10 10M95 172l10 10m0-10l-10 10" stroke="#534ab7" stroke-width="3" stroke-linecap="round"/>
+      <text x="190" y="156" font-size="17" font-weight="700" fill="#1d2330">핵</text>
+      <text x="190" y="180" font-size="14" fill="#5b6475">DNA를 보관하는 구조물</text>
+      <text x="620" y="168" font-size="13" fill="#5b6475" text-anchor="end">진핵세포에만 있음</text>
+      <path d="M100 208v22" stroke="#888" stroke-width="2"/><path d="M95 224l5 8 5-8" fill="none" stroke="#888" stroke-width="2"/>
+      <rect x="40" y="234" width="600" height="84" rx="8" fill="#fff" stroke="#cfd4de"/>
+      <path d="M80 250l40 52m0-52l-40 52" stroke="#534ab7" stroke-width="11" stroke-linecap="round"/>
+      <text x="190" y="266" font-size="17" font-weight="700" fill="#1d2330">염색체</text>
+      <text x="190" y="290" font-size="14" fill="#5b6475">DNA가 단백질(히스톤)에 감긴 구조</text>
+      <text x="620" y="280" font-size="13" fill="#5b6475" text-anchor="end">사람 체세포 46개</text>
+      <path d="M100 320v22" stroke="#888" stroke-width="2"/><path d="M95 336l5 8 5-8" fill="none" stroke="#888" stroke-width="2"/>
+      <rect x="40" y="346" width="600" height="84" rx="8" fill="#fff" stroke="#cfd4de"/>
+      <path d="M50 388c15-26 35-26 50 0s35 26 50 0" fill="none" stroke="#0f6e56" stroke-width="2.5"/>
+      <path d="M50 388c15 26 35 26 50 0s35-26 50 0" fill="none" stroke="#1d9e75" stroke-width="2.5"/>
+      <path d="M75 371v34M125 371v34M62 379v18M88 379v18M112 379v18M138 379v18" stroke="#5dcaa5" stroke-width="1.5"/>
+      <text x="190" y="378" font-size="17" font-weight="700" fill="#1d2330">DNA</text>
+      <text x="190" y="402" font-size="14" fill="#5b6475">염기 A, T, G, C의 긴 사슬(이중나선)</text>
+      <text x="620" y="388" font-size="13" fill="#5b6475" text-anchor="end">한 세트 약 30억 염기쌍</text>
+      <path d="M100 432v22" stroke="#888" stroke-width="2"/><path d="M95 448l5 8 5-8" fill="none" stroke="#888" stroke-width="2"/>
+      <rect x="40" y="458" width="600" height="84" rx="8" fill="#fff" stroke="#cfd4de"/>
+      <rect x="45" y="490" width="40" height="20" rx="3" fill="#f1efe8" stroke="#b4b2a9"/>
+      <rect x="85" y="486" width="40" height="28" rx="3" fill="#faeeda" stroke="#ba7517" stroke-width="1.5"/>
+      <rect x="125" y="490" width="30" height="20" rx="3" fill="#f1efe8" stroke="#b4b2a9"/>
+      <text x="190" y="492" font-size="17" font-weight="700" fill="#1d2330">유전자</text>
+      <text x="190" y="516" font-size="14" fill="#5b6475">형질 정보가 담긴 DNA 구간</text>
+      <text x="620" y="500" font-size="13" fill="#5b6475" text-anchor="end">사람 약 2만 개(단백질 암호)</text>
+    </svg>
+    <figcaption>모식도입니다. 실제 크기와 비율을 나타내지 않습니다.</figcaption>
+    </figure>
+    <div class="terms">
+      <div class="row"><div>핵</div><div>세포 속 구조물(세포소기관). DNA의 대부분을 보관합니다.</div></div>
+      <div class="row"><div>염색체</div><div>DNA를 단백질(히스톤)에 감아 포장한 구조. 평소엔 풀려 있다가 분열할 때 막대·X자 모양으로 응축됩니다.</div></div>
+      <div class="row"><div>DNA</div><div>유전 정보를 저장한 분자. 염기(A, T, G, C)의 배열 순서가 정보입니다.</div></div>
+      <div class="row"><div>유전자</div><div>DNA 중 단백질이나 기능성 RNA를 만드는 정보가 든 한 구간. DNA의 모든 구간이 유전자는 아닙니다.</div></div>
+      <div class="row"><div>게놈(유전체)</div><div>한 생물이 가진 DNA 전체(유전자와 유전자가 아닌 구간 모두 포함).</div></div>
+    </div>
+    <details><summary>게놈은 염색체와 같은 말인가요?</summary><div class="ans"><b>아닙니다.</b> 염색체는 DNA를 포장한 <b>물리적 구조</b>이고, 게놈은 DNA 정보의 <b>전체 범위</b>입니다. 염색체 하나는 게놈의 일부를 담고 있고, 한 세트(사람은 23개)의 DNA를 모두 합친 것이 게놈입니다.</div></details>
+    <details><summary>X자 모양 염색체는 무엇인가요?</summary><div class="ans">세포가 분열을 준비하며 DNA를 <b>복제한 뒤</b>의 모습입니다. 복제된 두 DNA(염색분체)가 가운데에서 붙어 X자로 보입니다. 복제 전에는 막대 하나입니다.</div></details>
+    <details><summary>세균에도 핵이 있나요? DNA는 핵에만 있나요?</summary><div class="ans">세균 같은 <b>원핵세포</b>에는 핵이 없고, DNA가 세포질의 핵양체 영역에 있습니다. 보통 고리 모양이며 작은 고리 DNA인 <b>플라스미드</b>를 가지기도 합니다. 사람 세포에서도 DNA는 핵에만 있지 않고 <b>미토콘드리아</b>에도 자체 DNA가 있습니다.</div></details>
+    <details><summary>사람의 게놈은 얼마나 큰가요?</summary><div class="ans">한 세트(23개 염색체)의 핵 DNA가 약 30억 염기쌍입니다. 체세포에는 어머니와 아버지에게서 받은 두 세트(46개)가 있습니다. 단백질을 만드는 유전자 부분은 전체의 약 1~2%입니다.</div></details>
+  </div>
+
+  <div class="topic" data-k="dna 이중나선 염기쌍 수소결합 뉴클레오타이드 상보적">
+    <h3>DNA의 구조: 이중나선과 염기쌍</h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>DNA는 꼬인 사다리 모양입니다. 사다리의 양쪽 기둥은 튼튼한 뼈대이고, 가운데 가로대는 글자 두 개가 손을 잡은 모양이에요. A는 T와, G는 C와만 손을 잡습니다.</div>
+    <figure>
+    <svg viewBox="0 0 680 330" role="img" aria-label="DNA 염기쌍 구조">
+      <path d="M270 40v250M590 40v250" stroke="#888780" stroke-width="3"/>
+      <g fill="#faece7" stroke="#993c1d" stroke-width=".8"><circle cx="270" cy="40" r="9"/><circle cx="270" cy="115" r="9"/><circle cx="270" cy="190" r="9"/><circle cx="270" cy="265" r="9"/><circle cx="590" cy="40" r="9"/><circle cx="590" cy="115" r="9"/><circle cx="590" cy="190" r="9"/><circle cx="590" cy="265" r="9"/></g>
+      <g fill="#f1efe8" stroke="#5f5e5a" stroke-width=".8"><rect x="258" y="66" width="24" height="24" rx="3"/><rect x="258" y="141" width="24" height="24" rx="3"/><rect x="258" y="216" width="24" height="24" rx="3"/><rect x="578" y="66" width="24" height="24" rx="3"/><rect x="578" y="141" width="24" height="24" rx="3"/><rect x="578" y="216" width="24" height="24" rx="3"/></g>
+      <path d="M282 78h58M520 78h58M282 153h58M520 153h58M282 228h58M520 228h58" stroke="#888780" stroke-width="2"/>
+      <g stroke="#534ab7" stroke-width=".8" fill="#eeedfe"><rect x="340" y="60" width="60" height="36" rx="6"/><rect x="460" y="60" width="60" height="36" rx="6"/><rect x="340" y="210" width="60" height="36" rx="6"/><rect x="460" y="210" width="60" height="36" rx="6"/></g>
+      <g stroke="#0f6e56" stroke-width=".8" fill="#e1f5ee"><rect x="340" y="135" width="60" height="36" rx="6"/><rect x="460" y="135" width="60" height="36" rx="6"/></g>
+      <g font-size="17" font-weight="700" text-anchor="middle" fill="#1d2330"><text x="370" y="84">A</text><text x="490" y="84">T</text><text x="370" y="159">G</text><text x="490" y="159">C</text><text x="370" y="234">T</text><text x="490" y="234">A</text></g>
+      <path d="M400 73h60M400 83h60M400 148h60M400 153h60M400 158h60M400 223h60M400 233h60" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="270" y="22" text-anchor="middle" font-size="13" fill="#5b6475">5′ 끝</text><text x="590" y="22" text-anchor="middle" font-size="13" fill="#5b6475">3′ 끝</text>
+      <g font-size="13" fill="#5b6475"><circle cx="40" cy="310" r="7" fill="#faece7" stroke="#993c1d"/><text x="54" y="315">인산</text><rect x="104" y="303" width="14" height="14" rx="2" fill="#f1efe8" stroke="#5f5e5a"/><text x="124" y="315">당(디옥시리보스)</text><rect x="260" y="303" width="14" height="14" rx="2" fill="#eeedfe" stroke="#534ab7"/><text x="280" y="315">염기 A, T</text><rect x="360" y="303" width="14" height="14" rx="2" fill="#e1f5ee" stroke="#0f6e56"/><text x="380" y="315">염기 G, C</text><path d="M470 310h30" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="4 3"/><text x="508" y="315">수소 결합</text></g>
+    </svg>
+    <figcaption>꼬임을 편 사다리 모양으로 그린 모식도입니다.</figcaption>
+    </figure>
+    <div class="terms">
+      <div class="row"><div>이중나선</div><div>DNA 두 가닥이 서로 꼬인 입체 모양(DNA의 구조 이름).</div></div>
+      <div class="row"><div>뉴클레오타이드</div><div>인산 + 당 + 염기로 이루어진 DNA의 기본 단위.</div></div>
+      <div class="row"><div>염기쌍(상보적 결합)</div><div>A–T(수소 결합 2개), G–C(수소 결합 3개)로 짝을 이루는 것. 한쪽 가닥이 정해지면 반대쪽이 정해져 DNA 복제의 원리가 됩니다.</div></div>
+      <div class="row"><div>역평행</div><div>두 가닥의 방향(5′→3′)이 서로 반대인 것.</div></div>
+    </div>
+    <ul><li>정보는 <b>염기의 배열 순서</b>에 있습니다. 뼈대(인산-당)는 모든 부분이 똑같이 반복됩니다.</li><li>1953년 왓슨과 크릭이 이중나선 구조를 제안했고, 프랭클린과 윌킨스의 X선 회절 자료가 중요한 단서였습니다.</li></ul>
+  </div>
+
+  <div class="topic" data-k="유전자 dna 구간 게놈 염색체 차이">
+    <h3>DNA, 유전자, 게놈은 어디까지가 어디일까?</h3>
+    <figure>
+    <svg viewBox="0 0 680 250" role="img" aria-label="DNA 안의 유전자 구간">
+      <text x="340" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2330">DNA 분자 하나 (염색체 하나를 이루는 DNA)</text>
+      <path d="M40 40v-8h600v8" fill="none" stroke="#5b6475"/>
+      <g stroke="#b4b2a9" stroke-width=".8"><rect x="40" y="50" width="90" height="36" fill="#f1efe8"/><rect x="230" y="50" width="80" height="36" fill="#f1efe8"/><rect x="440" y="50" width="60" height="36" fill="#f1efe8"/><rect x="570" y="50" width="70" height="36" fill="#f1efe8"/></g>
+      <g stroke="#ba7517" stroke-width=".8" fill="#faeeda"><rect x="130" y="50" width="100" height="36"/><rect x="310" y="50" width="130" height="36" stroke-width="1.6"/><rect x="500" y="50" width="70" height="36"/></g>
+      <g font-size="13" fill="#444441" text-anchor="middle"><text x="180" y="108">유전자 1</text><text x="375" y="108" font-weight="700">유전자 2</text><text x="535" y="108">유전자 3</text></g>
+      <path d="M310 90L100 140M440 90L580 140" stroke="#888" stroke-dasharray="4 3"/>
+      <rect x="60" y="140" width="560" height="90" rx="8" fill="none" stroke="#ba7517" stroke-dasharray="5 4"/>
+      <text x="340" y="162" text-anchor="middle" font-size="14" font-weight="700" fill="#633806">유전자 2 확대: 염기가 이어진 순서가 정보</text>
+      <g font-size="15" font-weight="700" text-anchor="middle" fill="#3c3489"><g stroke="#534ab7" stroke-width=".8" fill="#eeedfe"><rect x="110" y="176" width="30" height="26" rx="4"/><rect x="150" y="176" width="30" height="26" rx="4"/><rect x="190" y="176" width="30" height="26" rx="4"/><rect x="230" y="176" width="30" height="26" rx="4"/><rect x="270" y="176" width="30" height="26" rx="4"/><rect x="310" y="176" width="30" height="26" rx="4"/><rect x="350" y="176" width="30" height="26" rx="4"/><rect x="390" y="176" width="30" height="26" rx="4"/><rect x="430" y="176" width="30" height="26" rx="4"/><rect x="470" y="176" width="30" height="26" rx="4"/></g>
+        <text x="125" y="195">A</text><text x="165" y="195">T</text><text x="205" y="195">G</text><text x="245" y="195">G</text><text x="285" y="195">C</text><text x="325" y="195">A</text><text x="365" y="195">T</text><text x="405" y="195">T</text><text x="445" y="195">C</text><text x="485" y="195">G</text></g>
+      <text x="340" y="222" text-anchor="middle" font-size="12" fill="#5b6475">(예시용 염기서열입니다. 실제 유전자는 수천 개 염기쌍)</text>
+    </svg>
+    <figcaption>노란 구간은 유전자, 회색 구간은 유전자가 아닌 DNA입니다.</figcaption>
+    </figure>
+    <div class="tw"><table>
+      <tr><th>용어</th><th>범위</th></tr>
+      <tr><td>염기쌍 1개</td><td>A–T 같은 짝 하나. 가장 작은 단위</td></tr>
+      <tr><td>유전자</td><td>염기쌍 수천 개가 이어진 일부 구간</td></tr>
+      <tr><td>DNA 분자 하나</td><td>염색체 하나의 DNA. 유전자와 유전자가 아닌 구간을 모두 포함</td></tr>
+      <tr><td>게놈</td><td>한 세트의 모든 염색체의 DNA 전체</td></tr>
+    </table></div>
+  </div>
+
+  <div class="topic" data-k="실제 사진 현미경 세포 핵 염색체 dna x선">
+    <h3>실제 모습은 어떻게 생겼을까?</h3>
+    <p>그림은 단순화한 모식도입니다. 실제 현미경·X선 사진을 보세요. (인터넷 연결 필요)</p>
+    <div class="photos">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Multicolor%20fluorescence%20image%20of%20living%20HeLa%20cells.jpg?width=420" alt="HeLa 세포 형광현미경" onerror="this.style.display='none'"><figcaption><b>세포</b>: 살아 있는 HeLa 세포(형광현미경). 파란색이 핵입니다.<br><small><a href="https://commons.wikimedia.org/wiki/File:Multicolor_fluorescence_image_of_living_HeLa_cells.jpg" target="_blank" rel="noopener">Wikimedia Commons 원본 페이지</a>, CC BY-SA 4.0</small></figcaption></figure>
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pancreatic%20acinar%20cells%20-%20TEM.jpg?width=420" alt="췌장 세포 전자현미경" onerror="this.style.display='none'"><figcaption><b>핵</b>: 췌장 세포의 투과전자현미경 사진.<br><small><a href="https://commons.wikimedia.org/wiki/File:Pancreatic_acinar_cells_-_TEM.jpg" target="_blank" rel="noopener">Wikimedia Commons 원본 페이지</a>, Public domain</small></figcaption></figure>
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/SCE%20Metaphase-BMC%20Cell%20Biol%202-11-6.jpg?width=420" alt="분열 중기 염색체" onerror="this.style.display='none'"><figcaption><b>염색체</b>: 분열 중기에 응축된 염색체.<br><small><a href="https://commons.wikimedia.org/wiki/File:SCE_Metaphase-BMC_Cell_Biol_2-11-6.jpg" target="_blank" rel="noopener">Wikimedia Commons 원본 페이지</a>, CC BY 2.0</small></figcaption></figure>
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Fig-1-X-ray-chrystallography-of-DNA.gif?width=420" alt="DNA X선 회절 사진" onerror="this.style.display='none'"><figcaption><b>DNA</b>: X선 회절 무늬. 이중나선을 추론하게 한 단서입니다.<br><small><a href="https://commons.wikimedia.org/wiki/File:Fig-1-X-ray-chrystallography-of-DNA.gif" target="_blank" rel="noopener">Wikimedia Commons 원본 페이지</a>, CC BY 4.0</small></figcaption></figure>
+    </div>
+    <div class="note">DNA 이중나선은 지름이 약 2 nm라 광학현미경으로 모양을 볼 수 없고, X선 회절 같은 <b>간접 측정</b>으로 구조를 알아냈습니다. 유전자는 DNA의 염기서열 구간이라 따로 찍은 사진이 없습니다. 저작자 정보는 Wikimedia Commons 파일 페이지에서 확인할 수 있습니다.</div>
+  </div>
+</section>
+
+<!-- ===================== 16가지 기술 ===================== -->
+<section class="area" id="techs">
+  <h2>16가지 생명공학기술</h2>
+  <p class="lead">번호 순서대로 정리했습니다. 각 제목 옆의 보라색 표시는 비슷한 기술끼리 묶은 영역입니다.</p>
+
+  <!-- 1 -->
+  <div class="topic" id="t1" data-k="합성생물학 합성생물 인공유전체 syn1.0 syn3.0 아르테미시닌 유전자회로">
+    <h3><span class="no">1</span>합성생물학 <span class="area-chip">DNA를 다루는 기술</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>레고 블록으로 원하는 장난감을 만들듯이, 생물이 가진 유전 부품(DNA)을 컴퓨터로 설계하고 조립해서 자연에 없던 일을 하는 생물을 만드는 학문입니다.</div>
+    <div class="terms">
+      <div class="row"><div>합성생물학</div><div>생물학에 공학의 설계 개념을 적용해 유전 부품을 설계·조합하는 학문.</div></div>
+      <div class="row"><div>유전 부품</div><div>규격화된 DNA 조각(프로모터, 유전자 등). 레고 블록에 해당합니다.</div></div>
+      <div class="row"><div>유전자 회로</div><div>유전 부품을 연결해 스위치나 센서처럼 작동하게 만든 것.</div></div>
+      <div class="row"><div>유전체(게놈) 합성</div><div>DNA를 화학적으로 합성해 유전체 전체를 인공으로 만드는 것.</div></div>
+      <div class="row"><div>최소 유전체</div><div>생명이 유지되는 데 꼭 필요한 유전자만 남긴 유전체.</div></div>
+    </div>
+    <h4>어떻게 이루어질까요? (설계-제작-시험-학습 사이클)</h4>
+    <ol class="steps">
+      <li><b>설계</b>: 원하는 기능을 정하고 필요한 유전 부품을 컴퓨터로 설계합니다.</li>
+      <li><b>제작</b>: DNA를 화학적으로 합성·조립해 세포에 넣습니다.</li>
+      <li><b>시험</b>: 세포가 의도한 기능을 하는지 측정합니다.</li>
+      <li><b>학습</b>: 결과를 분석해 설계를 고치고 다시 반복합니다.</li>
+    </ol>
+    <h4>어디에 쓰일까요?</h4>
+    <ul>
+      <li><b>2010년 JCVI-syn1.0</b>: 세균(<i>Mycoplasma mycoides</i>)의 유전체를 화학적으로 합성해 다른 세균 세포에 넣었더니 스스로 증식했습니다.</li>
+      <li><b>2016년 JCVI-syn3.0</b>: 필수 유전자만 남긴 최소 유전체 세균(유전자 약 473개)</li>
+      <li><b>아르테미시닌 생산 효모</b>: 말라리아 치료제 전구체를 효모가 만들도록 여러 유전자를 설계</li>
+      <li><b>2019년 인공 유전체 대장균</b>: 유전 암호(코돈) 사용을 줄이도록 유전체를 다시 설계. 합성 효모 유전체 연구도 진행 중</li>
+    </ul>
+    <h4>인슐린 생산 대장균과 인공 유전체 세균은 어떻게 다를까요?</h4>
+    <div class="tw"><table>
+      <tr><th>구분</th><th>인슐린 생산 대장균 (유전자 재조합)</th><th>인공 유전체 세균 (합성생물)</th></tr>
+      <tr><td>목적</td><td>인슐린 대량 생산</td><td>인공 유전체로 생명이 작동하는지 확인</td></tr>
+      <tr><td>바꾼 범위</td><td>유전자 하나 추가</td><td>유전체 전체 교체</td></tr>
+      <tr><td>방법</td><td>제한효소·연결효소, 형질전환</td><td>DNA 화학 합성 → 효모에서 조립 → 수용 세포에 이식</td></tr>
+      <tr><td>원래 유전체</td><td>그대로 유지</td><td>합성 유전체로 대체</td></tr>
+      <tr><td>실용성</td><td>실제 의약품 생산(1982년 휴물린)</td><td>기초 연구와 기술 발전이 목적</td></tr>
+    </table></div>
+    <div class="note"><b>알아둘 점</b> JCVI-syn1.0의 유전체는 자연 유전체의 서열을 거의 그대로 합성한 것(워터마크 등 소수 변경)이라 완전히 새로 설계한 생명체는 아닙니다. 세포(껍데기)는 기존 생물의 것을 쓰는 경우가 많습니다. 환경 유출과 악용 가능성 때문에 안전과 윤리 논의가 함께 이루어집니다.</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="topic" id="t2" data-k="텔로미어 텔로머레이스 노화 헤이플릭 암 염색체 말단">
+    <h3><span class="no">2</span>텔로미어 <span class="area-chip">세포를 다루는 기술</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>신발끈 끝에 씌운 작은 플라스틱 마개처럼, 염색체 끝에는 DNA가 닳지 않게 지켜 주는 부분이 있습니다. 이것이 텔로미어입니다. 세포가 한 번 나뉠 때마다 이 마개가 조금씩 짧아집니다.</div>
+    <div class="terms">
+      <div class="row"><div>텔로미어</div><div>염색체 말단의 염기서열 반복 구조(사람은 TTAGGG). 염색체 끝을 보호합니다.</div></div>
+      <div class="row"><div>텔로머레이스</div><div>RNA를 주형으로 텔로미어를 늘려 주는 효소.</div></div>
+      <div class="row"><div>세포 분열</div><div>한 세포가 둘로 나뉘는 것. DNA를 복제한 뒤 나뉩니다.</div></div>
+      <div class="row"><div>헤이플릭 한계</div><div>정상 체세포가 분열할 수 있는 횟수의 한계(1961년 헤이플릭).</div></div>
+      <div class="row"><div>세포 노화</div><div>세포가 더 이상 분열하지 않게 되는 상태.</div></div>
+    </div>
+    <h4>어떻게 이루어질까요?</h4>
+    <ol class="steps">
+      <li>DNA 복제 효소는 선형 DNA의 맨 끝을 완전히 복제하지 못합니다(말단 복제 문제).</li>
+      <li>그래서 세포가 분열할 때마다 텔로미어가 조금씩 <b>짧아집니다</b>.</li>
+      <li>너무 짧아지면 세포는 분열을 멈추고 노화되거나 사멸합니다.</li>
+      <li>텔로머레이스는 텔로미어를 다시 늘려 줍니다. 생식세포, 줄기세포, 대부분의 암세포에서 활성이 높고, 대부분의 정상 체세포에서는 매우 낮습니다.</li>
+    </ol>
+    <h4>어디에 쓰일까요?</h4>
+    <ul>
+      <li>텔로머레이스를 억제하는 <b>항암제 연구</b></li>
+      <li>노화 연구와 건강 상태 지표 연구</li>
+      <li>2009년 노벨 생리의학상: 블랙번, 그라이더, 쇼스택(텔로미어와 텔로머레이스 발견)</li>
+    </ul>
+    <div class="warn"><b>알아둘 점</b> 암세포의 대다수(약 85~90%)는 텔로머레이스를 다시 활성화해 무한 분열하고, 나머지는 다른 방식(ALT)을 씁니다. <b>"텔로미어가 길면 오래 산다"고 단정하면 안 됩니다.</b> 텔로미어 길이는 노화와 관련된 여러 요인 중 하나입니다.</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="topic" id="t3" data-k="배양육 세포배양식품 근위성세포 지지체 바이오리액터">
+    <h3><span class="no">3</span>배양육 <span class="area-chip">먹거리·농업</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>고기를 얻으려고 동물을 키우는 대신, 고기가 될 근육 세포를 영양분이 든 용기에서 키워서 고기로 만드는 방법입니다. 식물을 키워 열매를 얻듯이 세포를 키우는 것입니다.</div>
+    <div class="terms">
+      <div class="row"><div>세포 배양</div><div>세포를 영양분이 든 배양액에서 무균 상태로 키우는 것.</div></div>
+      <div class="row"><div>근위성세포</div><div>근육 속에 있는 성체줄기세포(근육 줄기세포). 근육이 다치면 증식하고 근육세포로 분화해 복구합니다.</div></div>
+      <div class="row"><div>분화</div><div>세포가 근육세포처럼 특정한 모양과 기능을 가진 세포로 변하는 것.</div></div>
+      <div class="row"><div>바이오리액터</div><div>세포를 대량으로 키우는 생물 반응기.</div></div>
+      <div class="row"><div>지지체(scaffold)</div><div>세포가 붙어 자라며 고기 구조를 만들도록 돕는 식용 가능한 틀.</div></div>
+    </div>
+    <h4>어떻게 이루어질까요?</h4>
+    <ol class="steps">
+      <li><b>세포 확보</b>: 살아 있는 동물에게서 근육 줄기세포를 소량 채취합니다.</li>
+      <li><b>증식</b>: 영양분과 성장인자가 든 배양액에서 바이오리액터로 세포 수를 크게 늘립니다.</li>
+      <li><b>분화</b>: 조건을 바꿔 근육세포·근섬유로 분화시킵니다.</li>
+      <li><b>구조화</b>: 지지체에 붙여 고기와 비슷한 조직 구조를 만듭니다.</li>
+      <li><b>수확·가공</b>: 식품으로 만듭니다.</li>
+    </ol>
+    <h4>현황</h4>
+    <ul>
+      <li>2013년 마크 포스트 교수가 배양육 햄버거를 시연했습니다.</li>
+      <li>2020년 싱가포르가 세계 최초로 배양육(닭고기) 판매를 승인했고, 2023년 미국이 배양 닭고기 판매를 승인했습니다.</li>
+      <li>한국도 세포배양식품을 식품 원료로 인정하는 제도를 정비하고 있습니다.</li>
+    </ul>
+    <div class="note"><b>알아둘 점</b> 과제는 생산 비용, 대규모 생산 기술, 배양액 성분(소 태아 혈청 대체), 소비자 수용성입니다. 환경에 항상 유리하다고 단정하기는 어렵고, 에너지 사용량 등을 포함한 평가가 계속 진행 중입니다.</div>
+    <details><summary>배양육에는 어떤 줄기세포를 쓰나요? 체세포에서 줄기세포를 얻나요?</summary><div class="ans"><b>체세포</b>는 몸을 이루는 세포 중 생식세포가 아닌 세포 전체이고, <b>성체줄기세포</b>는 그 조직 속에 소수 숨어 있는 줄기세포입니다. 그래서 "체세포에서 줄기세포가 얻어진다"기보다 <b>근육 조직 속에서 성체줄기세포(근위성세포)를 분리</b>하는 것입니다.<ul>
+      <li>주로 근위성세포를 씁니다. 근육을 만들기에 적합하기 때문입니다.</li>
+      <li>지방 전구세포와 섬유아세포를 함께 키워 풍미와 질감을 만들기도 합니다.</li>
+      <li>연구 중인 방법: 배아줄기세포, 유도만능줄기세포(동물 체세포를 역분화), 한계 없이 분열하는 세포주</li>
+      <li>한계: 일반 체세포와 성체줄기세포는 분열 횟수에 한계가 있어(2번 텔로미어와 연결) 오래 대량으로 키울 세포 확보가 과제입니다.</li></ul></div></details>
+    <details><summary>배양육은 조직 배양인가요?</summary><div class="ans"><b>동물 세포 배양</b>에 해당합니다(넓게는 동물 조직 배양의 범주). 식물 조직 배양처럼 개체를 만드는 것이 아니라 <b>근육 조직(고기)만</b> 얻는 것입니다. (16번 조직 배양 참고)</div></details>
+  </div>
+
+  <!-- 4 -->
+  <div class="topic" id="t4" data-k="곤충육 식용곤충 단백질 알레르기 사료전환효율 식품공전">
+    <h3><span class="no">4</span>곤충육(식용곤충) <span class="area-chip">먹거리·농업</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>곤충에는 몸을 만드는 재료인 단백질이 많이 들어 있습니다. 소나 돼지를 키우는 것보다 작은 공간에서 적은 사료로 키울 수 있어서, 미래의 단백질 식량으로 연구하고 있습니다.</div>
+    <div class="terms">
+      <div class="row"><div>단백질</div><div>근육과 효소 등 몸을 이루는 주요 영양소.</div></div>
+      <div class="row"><div>사료 전환 효율</div><div>먹인 사료가 몸무게로 바뀌는 비율. 곤충은 가축보다 높은 편입니다.</div></div>
+      <div class="row"><div>식품공전</div><div>식품의 원료와 기준·규격을 정한 공적 기준집. 식용으로 인정된 곤충이 등재됩니다.</div></div>
+      <div class="row"><div>알레르기</div><div>특정 물질에 몸의 면역계가 과민하게 반응하는 것.</div></div>
+    </div>
+    <h4>어떻게 이루어질까요?</h4>
+    <ol class="steps">
+      <li>식용·사료용으로 안전성이 검증된 곤충 종을 고릅니다.</li>
+      <li>위생적으로 사육하고 일정 성장 단계에서 수확합니다.</li>
+      <li>세척, 열처리(살균), 건조 후 통째로 또는 분말·추출물로 가공합니다.</li>
+      <li>식품(단백질 바, 과자 재료)이나 동물 사료로 이용합니다.</li>
+    </ol>
+    <h4>특징</h4>
+    <ul>
+      <li>건조 기준 단백질 함량이 높습니다(종과 성장 단계에 따라 대략 40~70%).</li>
+      <li>소·돼지보다 사료 전환 효율이 높고, 사육 공간과 물 사용량이 적은 편입니다.</li>
+      <li>한국 식품공전에 등재된 식용곤충에는 메뚜기, 누에(번데기), 갈색거저리 유충, 흰점박이꽃무지 유충, 장수풍뎅이 유충, 쌍별귀뚜라미 등이 있습니다.</li>
+      <li>2013년 FAO(유엔식량농업기구) 보고서가 식용곤충을 식량 안보 대안으로 소개했습니다.</li>
+    </ul>
+    <div class="warn"><b>알아둘 점</b> 갑각류나 집먼지진드기 알레르기가 있는 사람은 교차 반응이 있을 수 있어 <b>주의</b>해야 합니다. 소비자의 심리적 거부감도 보급의 과제입니다. "곤충은 환경에 무조건 좋다"기보다 "가축 대비 환경 부담이 낮은 편"이라고 표현하는 것이 정확합니다.</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="topic" id="t5" data-k="줄기세포 배아줄기세포 성체줄기세포 ips 유도만능줄기세포 다능성 다분화능 단분화능 전능성 조혈모세포">
+    <h3><span class="no">5</span>줄기세포 <span class="area-chip">세포를 다루는 기술</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>줄기세포는 '아직 직업이 정해지지 않은 기본 세포'입니다. 스스로 똑같은 세포를 만들어 늘어날 수 있고, 필요하면 근육세포, 혈액세포, 신경세포 같은 여러 세포로 변신할 수 있습니다.</div>
+    <div class="terms">
+      <div class="row"><div>자기 복제</div><div>줄기세포가 분열해서 자신과 같은 줄기세포를 만드는 능력.</div></div>
+      <div class="row"><div>분화</div><div>세포가 특정한 모양과 기능을 가진 세포로 변하는 것.</div></div>
+      <div class="row"><div>배아줄기세포(ES)</div><div>초기 배아(배반포)의 내세포괴에서 얻는 줄기세포.</div></div>
+      <div class="row"><div>성체줄기세포</div><div>다 자란 몸의 조직(골수, 지방, 근육 등) 속에 소수 있는 줄기세포.</div></div>
+      <div class="row"><div>유도만능줄기세포(iPS)</div><div>분화한 체세포를 <b>역분화</b>시켜 만든 다능성 줄기세포(야마나카 인자 Oct4, Sox2, Klf4, c-Myc).</div></div>
+    </div>
+    <h4>분화 능력에 따른 분류</h4>
+    <div class="tw"><table>
+      <tr><th>구분</th><th>분화 범위</th><th>예</th></tr>
+      <tr><td>전능성(totipotent)</td><td>완전한 개체 전체(태반 포함)</td><td>수정란, 초기 분할 세포</td></tr>
+      <tr><td>다능성(pluripotent)</td><td>몸을 이루는 거의 모든 세포(개체 전체는 불가)</td><td>배아줄기세포, 유도만능줄기세포</td></tr>
+      <tr><td>다분화능(multipotent)</td><td>관련된 몇 종류의 세포</td><td>조혈모세포, 간엽줄기세포</td></tr>
+      <tr><td>단분화능(unipotent)</td><td>한 종류의 세포</td><td>일부 조직 줄기세포(근위성세포는 주로 근육세포로 분화)</td></tr>
+    </table></div>
+    <div class="note">자료에 따라 pluripotent를 "다능성/만능성", multipotent를 "다분화능/다능성"으로 다르게 부릅니다. 영문과 함께 기억하세요.</div>
+    <h4>어디에 쓰일까요? (실제 치료와 연구)</h4>
+    <div class="tw"><table>
+      <tr><th>치료</th><th>줄기세포</th><th>대상</th></tr>
+      <tr><td>조혈모세포 이식</td><td>골수·말초혈액·제대혈 조혈모세포</td><td>백혈병 등 혈액 질환</td></tr>
+      <tr><td>각막 줄기세포 이식</td><td>각막 가장자리(윤부) 줄기세포</td><td>손상된 각막</td></tr>
+      <tr><td>표피 줄기세포 배양 이식</td><td>피부 줄기세포</td><td>광범위한 화상</td></tr>
+      <tr><td>간엽줄기세포 제품</td><td>제대혈·지방 유래</td><td>무릎 연골 손상, 크론병 누공 등 일부</td></tr>
+    </table></div>
+    <ul><li>질병 모델 세포 제작, 신약의 효능·독성 시험, 재생의학 연구에도 쓰입니다.</li><li>iPS는 2006년 생쥐, 2007년 사람 세포에서 성공했고, 2012년 야마나카 신야와 존 거던이 노벨 생리의학상을 받았습니다.</li></ul>
+    <div class="warn"><b>알아둘 점</b> 분화되지 않은 줄기세포가 이식 후 <b>종양(기형종)</b>을 만들 위험이 있어 안전성 검증이 중요합니다. 배아줄기세포는 배아를 파괴해야 해서 윤리 논란이 있습니다. 효과가 입증되지 않은 줄기세포 시술이 많으므로 검증된 치료와 구분해야 합니다.</div>
+    <details><summary>사고로 손가락을 잃으면 줄기세포로 손가락이 새로 생기나요?</summary><div class="ans"><b>아닙니다.</b> 현재 그런 치료는 없습니다. 줄기세포 치료는 혈액, 각막, 피부, 연골처럼 <b>몸에 원래 있는 조직 하나를 보충하거나 복구</b>하는 것입니다. 손가락은 뼈, 관절, 힘줄, 근육, 혈관, 신경, 피부, 손톱이 정확한 3차원 구조로 배열된 복잡한 기관이라 줄기세포를 넣는다고 만들어지지 않습니다. 사람은 도롱뇽처럼 팔다리를 재생하지 못합니다. 어린이의 손끝 맨 끝마디가 절단되고 손톱 뿌리 부위가 남아 있으면 일부 재생되는 사례가 있을 뿐입니다. 현실적인 방법은 절단된 손가락을 보존해 <b>접합 수술</b>을 받는 것입니다.</div></details>
+    <details><summary>배아줄기세포는 다능성인데 성체줄기세포는 어디에 해당하나요?</summary><div class="ans">대부분 <b>다분화능</b>(조혈모세포, 간엽줄기세포)이고, 일부는 <b>단분화능</b>입니다. 성체줄기세포는 자기가 속한 조직과 관련된 세포로만 분화합니다. 배아줄기세포보다 분화 범위가 좁은 대신 윤리 문제가 적고 종양 형성 위험이 낮은 편으로 알려져 있습니다.</div></details>
+    <details><summary>근육 속에도 줄기세포가 있나요? 근력 운동하면 이 세포가 근육을 키우나요?</summary><div class="ans"><b>근위성세포(근육 줄기세포)</b>가 근섬유 가장자리에 있습니다. 근력 운동으로 근섬유에 장력이 걸리고 미세 손상이 생기면 근위성세포가 활성화되어 증식하고 기존 근섬유에 <b>융합해 핵을 보태며</b> 성장과 복구를 돕습니다. 다만 다음을 구분해야 합니다.<ul>
+      <li>근비대의 핵심 자극은 <b>장력</b>이고, 근육 손상은 부수적으로 생기는 현상입니다. 손상이 필수 조건은 아니며, 근육통이 심하다고 더 크게 자라는 것도 아닙니다.</li>
+      <li>근위성세포가 근비대에 꼭 필요한지는 연구 결과가 엇갈립니다. 초기에는 기존 근섬유의 단백질 합성만으로도 어느 정도 커진다는 결과가 있고, 장기적인 큰 성장에는 필요하다는 연구도 있습니다.</li>
+      <li>사람은 운동으로 근섬유가 <b>굵어지는</b> 것이 주된 변화이고, 새 근섬유가 많이 생긴다는 증거는 약합니다.</li>
+      <li>가벼운 중량도 한계에 가깝게 반복하면 비슷한 근비대가 일어난다는 연구가 있습니다. 근비대와 최대 근력 증가는 구분해야 합니다.</li></ul></div></details>
+  </div>
+
+  <!-- 6 -->
+  <div class="topic" id="t6" data-k="세포융합 면역세포치료 단일클론항체 하이브리도마 car-t 면역세포">
+    <h3><span class="no">6</span>세포융합(면역세포치료제) <span class="area-chip">세포를 다루는 기술</span></h3>
+    <div class="warn">세포융합과 면역세포치료제는 <b>서로 다른 기술</b>입니다. 아래에서 따로 설명합니다. (CAR-T는 세포융합이 아니라 유전자 도입입니다.)</div>
+    <h4>(1) 세포융합</h4>
+    <div class="easy"><b class="t">쉽게 말하면</b>서로 다른 두 세포를 한 개로 합치는 기술입니다. 두 친구의 장점을 합친 세포를 만든다고 생각하면 됩니다. 예를 들어 '항체를 잘 만드는 세포'와 '오래 사는 세포'를 합치면 항체를 계속 만드는 세포가 됩니다.</div>
+    <div class="terms">
+      <div class="row"><div>세포융합</div><div>서로 다른 두 세포를 합쳐 하나의 잡종(융합) 세포를 만드는 기술(센다이 바이러스, PEG, 전기 자극 이용). 식물세포는 세포벽을 제거한 원형질체끼리 융합합니다.</div></div>
+      <div class="row"><div>항원·항체</div><div>항원은 몸에 침입한 이물질, 항체는 항원에 결합하는 단백질.</div></div>
+      <div class="row"><div>B림프구</div><div>항체를 만드는 면역세포.</div></div>
+      <div class="row"><div>하이브리도마</div><div>B림프구와 골수종 세포를 융합한 잡종 세포. 항체를 만들면서 무한 증식합니다.</div></div>
+      <div class="row"><div>단일클론항체</div><div>한 종류의 항원에만 결합하는, 하나의 세포 집단에서 나온 항체.</div></div>
+    </div>
+    <ol class="steps">
+      <li>항원을 주사한 생쥐에서 <b>B림프구</b>를 얻습니다.</li>
+      <li>무한 증식하는 <b>골수종 세포</b>와 융합합니다.</li>
+      <li>융합된 <b>하이브리도마</b>만 선별 배지(HAT 배지)에서 살아남게 합니다.</li>
+      <li>원하는 항체를 만드는 하이브리도마를 골라 배양하면 단일클론항체를 대량으로 얻습니다. (1975년 쾰러·밀스타인)</li>
+      <li>진단 키트와 항암제 등에 활용합니다.</li>
+    </ol>
+    <h4>(2) 면역세포치료제</h4>
+    <div class="easy"><b class="t">쉽게 말하면</b>우리 몸에는 병균과 암세포를 공격하는 '군인 세포(면역세포)'가 있습니다. 환자의 면역세포를 꺼내 몸 밖에서 더 강하게 훈련시킨 뒤 다시 몸에 넣어 주는 치료입니다.</div>
+    <div class="terms">
+      <div class="row"><div>면역세포치료제</div><div>환자(또는 제공자)의 면역세포를 체외에서 증식·활성화하거나 변형해 다시 투여하는 치료제.</div></div>
+      <div class="row"><div>T세포</div><div>이상 세포를 공격하는 면역세포.</div></div>
+      <div class="row"><div>CAR-T</div><div>암세포 표면 항원을 인식하는 키메라 항원 수용체(CAR) 유전자를 T세포에 넣어 만든 치료제.</div></div>
+    </div>
+    <ol class="steps">
+      <li>환자 혈액에서 T세포를 분리합니다.</li>
+      <li>바이러스 벡터로 CAR 유전자를 T세포에 도입합니다.</li>
+      <li>변형된 T세포를 체외에서 증식시킵니다.</li>
+      <li>환자에게 주입하면 T세포가 암세포를 인식해 공격합니다.</li>
+    </ol>
+    <div class="note"><b>알아둘 점</b> 2017년 미국 FDA가 첫 CAR-T 치료제(Kymriah)를 승인했습니다(소아·청년의 특정 급성림프모구백혈병). 부작용으로 사이토카인 방출 증후군 등이 있어 전문 의료기관의 관리가 필요합니다. 수지상세포와 암세포를 융합한 항암 백신 연구처럼 두 기술이 만나는 사례도 있습니다.</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="topic" id="t7" data-k="유전자 재조합 인슐린 대장균 플라스미드 제한효소 연결효소 cdna 유전자가위 crispr 형질전환 돼지">
+    <h3><span class="no">7</span>유전자 재조합(인슐린) <span class="area-chip">DNA를 다루는 기술</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>가위로 종이를 자르고 풀로 붙이듯, 효소로 DNA를 자르고 이어 붙여 새로운 DNA를 만드는 기술입니다. 사람의 인슐린 정보를 대장균에게 넣어 주면, 대장균이 사람에게 필요한 인슐린을 대신 만들어 줍니다.</div>
+    <div class="terms">
+      <div class="row"><div>유전자 재조합</div><div>서로 다른 생물의 DNA를 잘라 이어 붙여 재조합 DNA를 만드는 기술.</div></div>
+      <div class="row"><div>제한효소</div><div>DNA의 특정 염기서열(보통 4~8개)을 인식해 자르는 효소. 세균이 침입 바이러스를 막는 방어 수단.</div></div>
+      <div class="row"><div>DNA 연결효소(리가아제)</div><div>잘린 DNA 조각을 이어 붙이는 효소.</div></div>
+      <div class="row"><div>플라스미드</div><div>세균에 있는 작은 고리 모양 DNA. 유전자를 옮기는 운반체(벡터)로 씁니다.</div></div>
+      <div class="row"><div>cDNA</div><div>mRNA를 주형으로 역전사해서 만든, 인트론이 없는 DNA.</div></div>
+      <div class="row"><div>형질전환</div><div>외래 DNA를 세포에 넣어 그 세포의 형질을 바꾸는 것.</div></div>
+    </div>
+    <h4>왜 필요했을까요?</h4>
+    <p>제1형 당뇨병은 인슐린이 부족해 혈당이 조절되지 않습니다. 예전에는 소·돼지의 <b>췌장</b>에서 인슐린을 추출했습니다. 양이 한정적이었고, 사람 인슐린과 아미노산이 조금 달라(돼지 1개, 소 3개) 면역 반응 문제가 있었습니다.</p>
+    <h4>어떻게 이루어질까요?</h4>
+    <ol class="steps">
+      <li><b>유전자 확보</b>: 사람 인슐린 유전자(<i>INS</i>)를 얻습니다. 대장균은 인트론을 제거하지 못하므로, 사람 췌장 세포의 mRNA에서 만든 <b>cDNA</b> 또는 화학 합성한 DNA를 씁니다.</li>
+      <li><b>운반체 준비</b>: 대장균의 플라스미드를 <b>제한효소</b>로 한 곳 잘라 고리를 엽니다. 인슐린 유전자도 같은 제한효소로 잘라 양끝을 맞춥니다.</li>
+      <li><b>재조합</b>: 열린 플라스미드 틈에 인슐린 유전자를 끼우고 <b>DNA 연결효소</b>로 이어 붙입니다.</li>
+      <li><b>형질전환</b>: 재조합 플라스미드를 대장균에 넣습니다.</li>
+      <li><b>선별</b>: 플라스미드의 항생제 내성 유전자를 이용해 재조합 플라스미드를 가진 대장균만 골라냅니다.</li>
+      <li><b>대량 배양</b>: 대형 발효 탱크에서 키우며 인슐린을 만들게 합니다.</li>
+      <li><b>분리·정제</b>: 인슐린을 꺼내 정제하고, 필요하면 효소로 가공해 의약품으로 만듭니다.</li>
+    </ol>
+    <h4>어디에 쓰일까요?</h4>
+    <ul><li>1978년 제넨텍이 대장균으로 사람 인슐린을 생산했고, <b>1982년 휴물린</b>이 미국 FDA 승인을 받은 최초의 재조합 의약품이 되었습니다.</li><li>같은 방법으로 성장호르몬, B형 간염 백신 등을 만듭니다. 효모를 숙주로 쓰기도 합니다.</li></ul>
+    <details><summary>대장균의 유전자를 잘라내고 다른 유전자를 붙여 넣는 건가요?</summary><div class="ans">아닙니다. 대장균 자체의 유전자를 잘라내는 것이 아니라, <b>플라스미드 고리를 열어 그 사이에 인슐린 유전자를 끼워 넣는</b> 것입니다. 대장균의 원래 유전체는 그대로이고 플라스미드가 추가되는 것입니다.</div></details>
+    <details><summary>자를 때 제한효소를 쓰면 붙일 때는 효소가 필요 없나요?</summary><div class="ans">필요합니다. <b>DNA 연결효소(리가아제)</b>입니다. 같은 제한효소로 자른 끝은 짝이 맞아 수소 결합으로 임시로 붙지만, 연결효소가 뼈대를 공유 결합으로 단단히 이어 줍니다. 자르기는 제한효소, 붙이기는 연결효소입니다.</div></details>
+    <details><summary>제한효소는 유전자가위인가요?</summary><div class="ans">같지는 않지만 관련이 있습니다. 제한효소는 <b>정해진 짧은 서열</b>을 자르는 자연의 가위이고, 유전자가위(ZFN, TALEN, CRISPR-Cas9)는 <b>원하는 위치를 설계해서</b> 유전체를 편집하는 도구입니다. CRISPR은 안내 RNA만 바꾸면 표적을 바꿀 수 있습니다. 넓은 의미로 제한효소를 유전자가위의 일종으로 부르기도 하지만, 보통 "유전자가위"는 ZFN, TALEN, CRISPR을 가리킵니다. (1978년 제한효소 노벨 생리의학상, 2020년 CRISPR 노벨 화학상)</div></details>
+    <details><summary>인슐린은 돼지의 어디에서 나오나요? 지금도 돼지를 쓰나요?</summary><div class="ans">인슐린은 <b>췌장(이자)의 랑게르한스섬 베타세포</b>에서 만들어집니다. 과거에는 돼지·소의 췌장을 추출했지만 재조합 인슐린은 <b>돼지가 필요 없습니다.</b> 사람 인슐린 유전자를 쓰기 때문에 사람 인슐린과 같은 구조로 만들 수 있습니다.</div></details>
+    <details><summary>대장균은 실험실에서 만드나요, 돼지에 주입하나요?</summary><div class="ans">재조합 대장균을 <b>공장의 대형 발효 탱크에서 배양</b>해서 얻습니다. 돼지에 주입하지 않습니다. 균주는 종균으로 보관하고 필요할 때 키워 인슐린을 얻습니다. 현재는 효모로도 생산합니다.</div></details>
+    <details><summary>인슐린은 어떤 구조인가요?</summary><div class="ans">처음에는 긴 전구체(프로인슐린)로 만들어지고, 중간 부분이 잘려 나가 <b>A사슬(21개 아미노산)과 B사슬(30개 아미노산)</b>이 결합한 완성된 인슐린이 됩니다. 초기 생산(1978년)은 두 사슬을 따로 만들어 결합했고, 지금은 프로인슐린으로 만들어 효소로 가공하는 방식도 씁니다.</div></details>
+  </div>
+
+  <!-- 8 -->
+  <div class="topic" id="t8" data-k="핵이식 체세포복제 돌리 복제 탈핵">
+    <h3><span class="no">8</span>핵이식(체세포 복제) <span class="area-chip">세포를 다루는 기술</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>난자 속 '설계도 보관실(핵)'을 비우고, 복제하고 싶은 동물의 몸 세포에서 꺼낸 설계도를 넣어 주는 기술입니다. 그러면 설계도를 준 동물과 똑같은 유전 정보를 가진 새끼가 자랍니다.</div>
+    <div class="terms">
+      <div class="row"><div>핵이식</div><div>한 세포의 핵을 핵을 제거한 난자에 옮겨 넣는 기술.</div></div>
+      <div class="row"><div>탈핵</div><div>난자에서 핵을 제거하는 것.</div></div>
+      <div class="row"><div>체세포</div><div>몸을 이루는 세포 중 생식세포(정자·난자)가 아닌 세포.</div></div>
+      <div class="row"><div>복제</div><div>유전적으로 같은 개체나 세포를 만드는 것.</div></div>
+    </div>
+    <h4>어떻게 이루어질까요? (복제 양 돌리, 1996년)</h4>
+    <ol class="steps">
+      <li><b>체세포 채취</b>: 복제할 암양(핀 도싯)의 유선 세포를 얻습니다.</li>
+      <li><b>난자 준비</b>: 다른 암양(스코티시 블랙페이스)의 난자에서 핵을 제거합니다.</li>
+      <li><b>핵 이식·융합</b>: 체세포를 탈핵 난자에 넣고 전기 자극으로 융합·활성화합니다.</li>
+      <li><b>초기 배아 배양</b></li>
+      <li><b>대리모 자궁에 이식</b></li>
+      <li><b>출산</b>: 핵 제공 개체와 핵 DNA가 같은 새끼가 태어납니다.</li>
+    </ol>
+    <h4>어디에 쓰일까요?</h4>
+    <ul><li>우수 가축 보존, 멸종위기종 보존 연구, 형질전환 동물 생산, 환자 맞춤형 줄기세포 연구(치료용 복제)</li><li>2018년에는 체세포 핵이식으로 원숭이(중국 마카크)가 복제되었습니다.</li></ul>
+    <div class="note"><b>알아둘 점</b> 돌리는 277개의 융합 난자 중 1마리만 성공했을 만큼 성공률이 낮았습니다. 복제 동물은 <b>핵 DNA</b>만 같고, 미토콘드리아 DNA는 난자 제공자에게서 오며 자라는 환경도 달라 <b>완전히 같지는 않습니다.</b> 사람 복제는 윤리 문제로 국제적으로 금지됩니다.</div>
+  </div>
+
+  <!-- 9 -->
+  <div class="topic" id="t9" data-k="식물공장 led 수경재배 수직농장 양액">
+    <h3><span class="no">9</span>식물 공장 <span class="area-chip">먹거리·농업</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>해와 흙 대신 전등과 영양분이 든 물로 건물 안에서 식물을 키우는 곳입니다. 날씨가 나빠도 일 년 내내 정해진 날짜에 채소를 수확할 수 있습니다.</div>
+    <div class="terms">
+      <div class="row"><div>식물 공장</div><div>건물 안에서 빛·온도·습도·이산화탄소·양분을 인공적으로 조절해 식물을 계획적으로 생산하는 시스템.</div></div>
+      <div class="row"><div>수경 재배</div><div>흙 대신 양분이 녹은 배양액(양액)으로 식물을 키우는 방법.</div></div>
+      <div class="row"><div>수직 농장</div><div>재배 선반을 여러 층으로 쌓아 좁은 면적에서 키우는 방식.</div></div>
+      <div class="row"><div>LED</div><div>발광 다이오드. 식물에 필요한 파장의 빛만 골라 쓸 수 있는 광원.</div></div>
+    </div>
+    <h4>어떻게 이루어질까요?</h4>
+    <ol class="steps">
+      <li>밀폐된 공간에 재배 선반을 여러 층으로 쌓습니다(수직 농장).</li>
+      <li><b>LED</b>를 비춥니다. 식물은 주로 청색광(약 450nm)과 적색광(약 660nm)을 광합성에 잘 이용하므로 이 파장을 조합해 효율을 높입니다.</li>
+      <li><b>수경 재배</b>로 배양액을 공급합니다.</li>
+      <li>센서로 온도·습도·CO₂ 농도를 측정해 자동으로 조절합니다.</li>
+      <li>병해충 유입이 적어 농약 없이 재배가 가능하고, 계획한 날짜에 수확합니다.</li>
+    </ol>
+    <h4>어디에 쓰일까요?</h4>
+    <ul><li>상추 같은 <b>잎채소</b>, 허브, 모종 생산 등</li><li>날씨와 계절의 영향이 없고, 물과 토지를 절약할 수 있으며 도시 한가운데서도 가능합니다.</li></ul>
+    <div class="note"><b>알아둘 점</b> <b>전력 비용과 초기 투자비가 큰 것</b>이 가장 큰 한계입니다. 모든 작물에 적합하지 않고 잎채소 위주입니다. 완전 인공광 방식과 태양광을 함께 쓰는 반폐쇄형 방식이 있습니다.</div>
+  </div>
+
+  <!-- 10 -->
+  <div class="topic" id="t10" data-k="스마트팜 ict iot 센서 인공지능 빅데이터 자동제어">
+    <h3><span class="no">10</span>스마트팜 <span class="area-chip">먹거리·농업</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>농장에 센서와 컴퓨터를 달아서, 작물이 잘 자라는 온도와 물의 양을 스스로 알고 자동으로 맞춰 주는 똑똑한 농장입니다. 농부는 스마트폰으로 멀리서도 살펴볼 수 있습니다.</div>
+    <div class="terms">
+      <div class="row"><div>스마트팜</div><div>농업에 정보통신기술(ICT)을 접목해 센서와 인공지능으로 생육 환경을 측정·분석하고 자동으로 관리하는 농업.</div></div>
+      <div class="row"><div>ICT</div><div>정보통신기술(Information and Communication Technology).</div></div>
+      <div class="row"><div>사물인터넷(IoT)</div><div>센서와 기계가 인터넷으로 연결되어 정보를 주고받는 기술.</div></div>
+      <div class="row"><div>빅데이터·인공지능</div><div>많은 데이터를 모아 분석하고 최적의 판단을 돕는 기술.</div></div>
+    </div>
+    <h4>어떻게 이루어질까요?</h4>
+    <ol class="steps">
+      <li><b>측정</b>: 온도, 습도, 일사량, CO₂, 토양 수분 센서와 카메라가 환경·작물 상태를 수집합니다.</li>
+      <li><b>전송</b>: 사물인터넷으로 서버·클라우드에 데이터를 보냅니다.</li>
+      <li><b>분석</b>: 빅데이터와 AI가 최적 환경 조건과 생육 상태를 분석합니다.</li>
+      <li><b>제어</b>: 환기창, 보온 커튼, 관수·양액 공급기, 조명 등을 자동으로 작동시킵니다.</li>
+      <li><b>원격 관리</b>: 농업인이 스마트폰·컴퓨터로 확인하고 조작합니다.</li>
+    </ol>
+    <h4>종류와 식물 공장과의 차이</h4>
+    <p>스마트 온실(시설 원예), 스마트 축사(가축 생육·건강 관리), 스마트 과수원 등이 있습니다.</p>
+    <div class="tw"><table>
+      <tr><th>구분</th><th>식물 공장</th><th>스마트팜</th></tr>
+      <tr><td>환경</td><td>주로 완전 인공 환경</td><td>온실·노지·축사 등 다양</td></tr>
+      <tr><td>광원</td><td>주로 LED</td><td>태양광 중심</td></tr>
+      <tr><td>개념</td><td>재배 시스템의 한 형태</td><td>더 넓은 ICT 농업 개념(식물 공장도 포함 가능)</td></tr>
+    </table></div>
+    <div class="note"><b>알아둘 점</b> 노동력 절감, 생산량·품질 향상, 고령화된 농촌 문제 해결에 도움이 됩니다. 초기 설치비와 데이터·기술을 다루는 능력이 과제입니다.</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="topic" id="t11" data-k="형질전환 동물 transgenic 녹아웃 gfp 생체반응기 이종장기 미세주입">
+    <h3><span class="no">11</span>형질전환 동물 <span class="area-chip">DNA를 다루는 기술</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>다른 생물의 유전자 한 개를 동물의 설계도에 끼워 넣어서, 원래 없던 능력을 갖게 한 동물입니다. 그 능력은 새끼에게도 이어집니다.</div>
+    <div class="terms">
+      <div class="row"><div>형질전환 동물</div><div>외래 유전자를 도입해 새로운 형질을 갖게 되고, 그 형질이 다음 세대에도 유전되는 동물.</div></div>
+      <div class="row"><div>형질</div><div>생물이 가진 눈에 보이거나 측정할 수 있는 특징.</div></div>
+      <div class="row"><div>전핵</div><div>수정란 안에서 아직 합쳐지기 전인 정자와 난자의 핵.</div></div>
+      <div class="row"><div>미세주입</div><div>가는 유리 바늘로 DNA를 세포에 주입하는 방법.</div></div>
+      <div class="row"><div>녹아웃</div><div>특정 유전자를 작동하지 못하게 제거하는 것.</div></div>
+    </div>
+    <h4>어떻게 이루어질까요? (수정란 미세주입, 생쥐)</h4>
+    <ol class="steps">
+      <li>도입할 유전자를 조절 서열(프로모터)과 함께 DNA 조각으로 준비합니다.</li>
+      <li>암컷에게서 수정란을 얻습니다.</li>
+      <li>가는 유리 바늘로 DNA를 수정란의 <b>전핵</b>에 주입합니다.</li>
+      <li>수정란을 대리모의 자궁에 넣습니다.</li>
+      <li>태어난 새끼에서 외래 유전자가 있는 개체를 선별합니다.</li>
+      <li>교배해서 형질을 다음 세대로 이어 갑니다.</li>
+    </ol>
+    <p>그 밖에 배아줄기세포 이용, 체세포 핵이식, 유전자가위 방식이 있습니다.</p>
+    <h4>어디에 쓰일까요?</h4>
+    <ul>
+      <li><b>질병 연구 모델</b>: 특정 유전자를 제거(녹아웃)하거나 질병 유전자를 넣은 생쥐(2007년 노벨상)</li>
+      <li><b>의약품 생산(동물 생체 반응기)</b>: 젖으로 사람 단백질을 분비하는 동물. 염소의 항트롬빈(2009년 FDA 승인), 토끼의 C1 에스테라제 저해제(2014년 FDA 승인)</li>
+      <li>형광 단백질(GFP)을 넣어 세포 추적</li>
+      <li>이종 장기 이식용 유전자 편집 돼지 연구</li>
+      <li>성장이 빠른 연어(AquAdvantage, 2015년 FDA 승인)</li>
+    </ul>
+    <div class="note"><b>알아둘 점</b> 외래 유전자가 들어가는 위치가 무작위일 수 있어 성공률이 낮고 예측이 어렵습니다. 동물 복지, 생태계 교란, 식품 안전성 논란이 있습니다. 인슐린은 동물이 아니라 대장균이나 효모로 만드는 점에서 이 방식과 다릅니다.</div>
+  </div>
+
+  <!-- 12 -->
+  <div class="topic" id="t12" data-k="유전자 치료 gene therapy 벡터 aav 사례 crispr">
+    <h3><span class="no">12</span>유전자 치료 <span class="area-chip">DNA를 다루는 기술</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>몸이 필요한 단백질을 만들지 못하는 이유가 '설계도(유전자)의 고장'일 때, 고장 난 설계도 대신 정상 설계도를 몸에 전달해서 고치는 치료입니다. 택배 기사 역할을 하는 운반체(벡터)가 정상 유전자를 배달합니다.</div>
+    <div class="terms">
+      <div class="row"><div>유전자 치료</div><div>결함이 있는 유전자를 정상 유전자로 보충·교정해 질병을 치료하는 방법.</div></div>
+      <div class="row"><div>벡터</div><div>유전자를 세포 안으로 운반하는 도구(바이러스 벡터, 지질 나노입자 등).</div></div>
+      <div class="row"><div>체외(ex vivo)·체내(in vivo)</div><div>세포를 몸 밖에서 처리해 돌려놓는 방식 / 벡터를 몸에 직접 주입하는 방식.</div></div>
+      <div class="row"><div>체세포·생식세포</div><div>환자 본인에게만 영향을 주는 세포 / 후손에게 유전되는 세포.</div></div>
+    </div>
+    <h4>어떻게 이루어질까요? (체외 방식)</h4>
+    <ol class="steps">
+      <li>원인 유전자를 파악합니다(주로 단일 유전자 이상 질환).</li>
+      <li>정상 유전자를 벡터에 넣습니다. 바이러스 벡터(레트로·렌티바이러스, 아데노연관바이러스 AAV, 아데노바이러스)와 비바이러스 벡터가 있습니다.</li>
+      <li>환자에게서 표적 세포(예: 조혈모세포)를 얻습니다.</li>
+      <li>체외에서 정상 유전자를 넣습니다.</li>
+      <li>유전자가 도입된 세포를 확인하고 키웁니다.</li>
+      <li>환자에게 다시 주입합니다.</li>
+    </ol>
+    <p>체내 방식은 벡터를 환자 몸에 직접 주입합니다(예: 눈 망막에 주사).</p>
+    <h4>역사와 사례</h4>
+    <div class="tw"><table>
+      <tr><th>연도</th><th>사건</th></tr>
+      <tr><td>1990</td><td>미국 NIH가 ADA 결핍 중증복합면역결핍증(ADA-SCID) 환아에게 최초 시도</td></tr>
+      <tr><td>2017</td><td>Luxturna(RPE65 유전자 이상 망막 질환, AAV 벡터) FDA 승인</td></tr>
+      <tr><td>2019</td><td>Zolgensma(척수성 근위축증) FDA 승인</td></tr>
+      <tr><td>2023</td><td>Casgevy(낫 모양 적혈구병, CRISPR 이용) 승인. 엄밀히는 유전자 <b>편집</b> 치료제</td></tr>
+    </table></div>
+    <div class="warn"><b>알아둘 점</b> 위험도 있었습니다. 1999년 미국에서 아데노바이러스 벡터 임상시험 중 환자가 사망했고, 2000년대 초 프랑스 X-SCID 치료에서는 일부 환자에게 백혈병이 생겼습니다(도입 유전자의 삽입 위치 영향으로 설명). 체세포 치료와 <b>생식세포 편집</b>은 구분하며, 후자는 윤리 문제로 대부분 국가에서 임상 적용이 금지됩니다. 치료비가 매우 고가인 점도 쟁점입니다.</div>
+  </div>
+
+  <!-- 13 -->
+  <div class="topic" id="t13" data-k="ct 컴퓨터 단층 촬영 조영제 공복 침대 mri 단면 호운스필드">
+    <h3><span class="no">13</span>컴퓨터 단층 촬영(CT) <span class="area-chip">몸을 보고 만드는 기술</span></h3>
+    <div class="note">CT는 생명공학보다 <b>의료 영상 진단 기술</b>이지만, 바이오프린팅의 환자 맞춤 설계도(CT·MRI 영상)와 연결되어 함께 다룹니다.</div>
+    <div class="easy"><b class="t">쉽게 말하면</b>빵 한 덩이를 얇게 썰어 한 조각씩 들여다보듯, 몸을 얇은 층으로 나누어 한 장씩 사진을 찍은 뒤 컴퓨터가 쌓아서 입체로 보여 주는 검사입니다. 실제로 몸을 자르는 것이 아니라 X선으로 속을 들여다봅니다.</div>
+    <div class="terms">
+      <div class="row"><div>컴퓨터 단층 촬영(CT)</div><div>X선으로 몸의 단면 영상을 얻고 컴퓨터로 재구성해 쌓아 3차원 영상까지 만드는 기술.</div></div>
+      <div class="row"><div>갠트리</div><div>X선관과 검출기가 들어 있는 도넛 모양 고리. 이 안에서 회전합니다.</div></div>
+      <div class="row"><div>CT 값(HU)</div><div>조직의 X선 흡수 정도를 나타낸 값. 물 0, 공기 약 -1000, 뼈는 높은 값.</div></div>
+      <div class="row"><div>조영제</div><div>혈관과 조직을 더 뚜렷이 보이게 하는 약(CT는 요오드 계열).</div></div>
+    </div>
+    <figure>
+    <svg viewBox="0 0 400 300" role="img" aria-label="머리를 가로로 얇게 자른 CT 단면">
+      <circle cx="200" cy="80" r="55" fill="#fff" stroke="#c0392b" stroke-width="3"/>
+      <path d="M170 190c-60 10-70 40-70 100h200c0-60-10-90-70-100" fill="#fff" stroke="#c0392b" stroke-width="3"/>
+      <g stroke="#185fa5" stroke-width="3" fill="none"><path d="M140 40h120"/><path d="M135 62h130"/><path d="M135 84h130"/><path d="M140 106h120"/><path d="M148 128h104"/></g>
+      <g font-size="13" fill="#185fa5"><text x="272" y="44">1</text><text x="278" y="66">2</text><text x="278" y="88">3</text><text x="272" y="110">4</text><text x="262" y="132">…</text></g>
+    </svg>
+    <figcaption>머리를 위아래로 얇게 나눠 한 층씩 촬영합니다. 실제로는 수십~수백 장이 만들어집니다.</figcaption>
+    </figure>
+    <h4>어떻게 이루어질까요?</h4>
+    <ol class="steps">
+      <li>X선관이 환자 둘레를 <b>회전</b>하며 여러 각도에서 X선을 쏘고, 반대편 검출기가 통과한 X선의 <b>세기</b>를 측정합니다.</li>
+      <li>뼈는 X선을 많이 흡수하고 공기가 찬 폐는 적게 흡수해서 통과한 세기가 다릅니다.</li>
+      <li>단면 하나에 수백~수천 각도의 데이터를 모읍니다.</li>
+      <li>컴퓨터가 각 지점의 X선 흡수 정도를 계산해 <b>단면 영상</b>을 만듭니다.</li>
+      <li>이 단면들을 위아래로 쌓으면 입체 영상이 되고, 앞뒤·좌우 방향으로 다시 잘라 볼 수도 있습니다.</li>
+      <li>필요하면 <b>조영제</b>를 정맥에 주사해 혈관·장기를 더 뚜렷이 봅니다.</li>
+    </ol>
+    <p>1971년 하운스필드가 첫 임상 CT를 개발했고, 하운스필드와 코맥이 1979년 노벨 생리의학상을 받았습니다. 일반 X선 촬영은 겹쳐 보이는 2차원 영상이고, CT는 겹침 없는 단면 영상입니다.</p>
+    <details><summary>X선관이 360도 회전한다면 환자는 공중에 떠 있나요? 침대는요?</summary><div class="ans">CT 장치는 도넛 모양의 고리이고, 그 안에서 X선관과 검출기가 환자의 <b>몸 길이 축</b>을 중심으로 회전합니다. 환자는 침대에 누운 채 고리 구멍 안으로 들어갑니다. 아래쪽에서 쏠 때 X선은 침대를 통과하지만, 침대는 X선을 거의 흡수하지 않는 <b>탄소섬유 같은 소재</b>입니다. 영상에 침대가 얇게 찍히기도 하지만 3D 영상에서는 컴퓨터로 제거합니다. 요즘은 침대가 계속 움직이는 동안 회전하는 <b>나선형(헬리컬) 촬영</b>을 하며, 한 번 회전에 여러 단면을 얻는 다열 검출기도 씁니다.</div></details>
+    <details><summary>CT 전에 왜 공복이어야 하고 주사를 맞나요?</summary><div class="ans">주사는 <b>조영제</b>입니다. 혈관, 간, 종양 같은 연부조직은 X선 흡수 정도가 비슷해 구분이 어렵습니다. 조영제의 주성분 <b>요오드</b>는 원자번호가 커서 X선을 강하게 흡수하므로, 주사하면 혈관과 혈류가 많은 조직이 밝게 보입니다. <b>공복</b>은 조영제로 인한 메스꺼움·구토 때 음식물이 기도로 들어가는 위험을 줄이고, 복부 영상에서 위장 내용물이 방해하지 않게 하기 위해서입니다(보통 4~8시간, 병원 안내에 따름).<br>모든 CT에 조영제를 쓰는 것은 아니며, 뇌출혈·폐결절·요로결석 등은 조영제 없이도 잘 보입니다. 조영제는 신장으로 배설되므로 신장 기능과 알레르기를 확인하고, 복용 약(예: 메트포르민)은 의사의 지시가 필요할 수 있습니다. 실제 검사 준비는 반드시 병원 안내를 따릅니다.</div></details>
+    <h4>CT와 MRI는 어떻게 다를까요?</h4>
+    <div class="tw"><table>
+      <tr><th>구분</th><th>CT</th><th>MRI</th></tr>
+      <tr><td>사용하는 것</td><td>X선</td><td>강한 자기장 + 라디오파</td></tr>
+      <tr><td>측정 대상</td><td>조직의 X선 흡수</td><td>수소 원자핵(주로 물·지방)의 신호</td></tr>
+      <tr><td>방사선 피폭</td><td>있음</td><td>없음(전리 방사선을 쓰지 않음)</td></tr>
+      <tr><td>촬영 시간</td><td>짧음(수 분 이내)</td><td>김(보통 20~60분 내외), 소음 큼</td></tr>
+      <tr><td>잘 보이는 것</td><td>뼈, 폐, 급성 출혈, 석회, 결석</td><td>뇌, 척수, 근육, 인대, 연골 등 연부조직</td></tr>
+      <tr><td>조영제</td><td>요오드 계열</td><td>가돌리늄 계열</td></tr>
+      <tr><td>금속</td><td>영향이 적은 편</td><td>큰 제약(심박동기, 일부 삽입물, 철제 물건 주의)</td></tr>
+      <tr><td>노벨상</td><td>1979 (하운스필드, 코맥)</td><td>2003 (라우터버, 맨스필드)</td></tr>
+    </table></div>
+    <p><b>MRI 원리</b>: 강한 자기장에서 수소 원자핵이 정렬 → 라디오파로 흐트러뜨림 → 라디오파를 끄면 원래 상태로 돌아오며 신호 방출 → 조직마다 이완 속도(T1, T2)가 달라 명암이 생김 → 경사 자기장으로 위치를 구분해 영상을 계산합니다. CT는 응급·뼈·폐에, MRI는 뇌·근육·인대에 유리하고 함께 쓰기도 합니다.</p>
+    <div class="note"><b>알아둘 점</b> CT는 X선을 쓰므로 방사선 피폭이 있습니다. 필요성과 이익이 더 크다고 판단될 때 시행하며, 어린이나 임신 가능성이 있을 때는 특히 신중히 결정합니다.</div>
+  </div>
+
+  <!-- 14 -->
+  <div class="topic" id="t14" data-k="바이오프린팅 바이오잉크 3d프린팅 장기 조직 하이드로겔">
+    <h3><span class="no">14</span>바이오프린팅 <span class="area-chip">몸을 보고 만드는 기술</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>보통 3D 프린터는 플라스틱을 쌓아 물건을 만들지만, 바이오프린터는 살아 있는 세포를 젤리 같은 재료에 섞어서 층층이 쌓아 몸의 조직 모양을 만듭니다. 쌓은 뒤에는 영양분을 주며 키워서 진짜 조직처럼 자라게 합니다.</div>
+    <div class="terms">
+      <div class="row"><div>바이오프린팅</div><div>3D 프린팅 기술로 살아 있는 세포와 생체 재료를 쌓아 조직·장기와 비슷한 구조를 만드는 기술.</div></div>
+      <div class="row"><div>바이오잉크</div><div>세포를 하이드로겔 등과 섞어 프린터에 넣는 '잉크'.</div></div>
+      <div class="row"><div>하이드로겔</div><div>물을 많이 머금은 젤 형태의 생체 적합 재료(콜라겐, 젤라틴, 알긴산 등).</div></div>
+      <div class="row"><div>성숙</div><div>출력된 세포가 증식하고 조직으로 자리 잡아 기능하게 되는 과정.</div></div>
+    </div>
+    <h4>어떻게 이루어질까요?</h4>
+    <ol class="steps">
+      <li><b>영상 획득</b>: 환자의 CT·MRI 영상으로 필요한 조직의 모양을 확인합니다.</li>
+      <li><b>3D 설계</b>: 컴퓨터로 3차원 설계도(CAD 모델)를 만듭니다.</li>
+      <li><b>바이오잉크 준비</b>: 환자 또는 공여자의 세포와 하이드로겔을 섞습니다.</li>
+      <li><b>프린팅</b>: 압출식, 잉크젯식, 레이저 보조 방식으로 한 층씩 쌓습니다.</li>
+      <li><b>배양·성숙</b>: 바이오리액터에서 조직으로 성숙시킵니다.</li>
+      <li><b>활용</b>: 이식하거나 약물 시험·연구에 씁니다.</li>
+    </ol>
+    <h4>어떤 세포로 무엇을 만들까요?</h4>
+    <div class="tw"><table>
+      <tr><th>세포</th><th>만들려는 것</th><th>현황</th></tr>
+      <tr><td>연골세포(또는 줄기세포를 분화)</td><td>귀·코 연골, 관절 연골</td><td>환자 귀 연골 이식 임상시험 사례</td></tr>
+      <tr><td>섬유아세포, 각질형성세포</td><td>피부</td><td>화상·상처용 연구</td></tr>
+      <tr><td>골모세포, 간엽줄기세포</td><td>뼈 조직</td><td>지지체와 함께 연구</td></tr>
+      <tr><td>혈관내피세포</td><td>혈관 구조</td><td>작은 혈관은 가능, 두꺼운 조직과의 연결이 과제</td></tr>
+      <tr><td>간세포 등</td><td>간 조직 모델(미니 장기)</td><td>약물 독성 시험용</td></tr>
+      <tr><td>암세포</td><td>종양 모델</td><td>항암제 효과 시험용</td></tr>
+      <tr><td>심근세포</td><td>심장 조직 패치</td><td>연구 단계</td></tr>
+    </table></div>
+    <ul>
+      <li><b>임상 단계</b>: 2022년 미국 3DBio Therapeutics가 환자 자신의 귀 연골세포로 만든 귀를 이식하는 임상시험을 진행했습니다.</li>
+      <li><b>활용 단계</b>: 약물 시험용 조직 모델, 암 모델(동물실험을 줄이는 방법으로 기대)</li>
+      <li><b>연구 단계</b>: 혈관 있는 두꺼운 조직, 심장 조직. 2019년 이스라엘 연구팀이 작은 심장 구조를 출력했지만 실제로 박동하며 이식 가능한 심장은 아닙니다.</li>
+      <li><b>아직 불가능</b>: 심장·간·신장 같은 복잡한 장기를 통째로 출력해 이식하는 것</li>
+    </ul>
+    <div class="note"><b>알아둘 점</b> 어려운 점은 혈관 만들기(산소·영양 공급), 노즐 통과 때 세포 생존, 많은 세포 확보(장기 하나에 수십억~수천억 개), 조직처럼 기능하게 성숙시키기, 안전·규제입니다. 환자 자신의 세포를 쓰면 면역 거부 반응을 줄일 수 있다는 기대가 있습니다.</div>
+  </div>
+
+  <!-- 15 -->
+  <div class="topic" id="t15" data-k="나노공학 나노입자 리포좀 지질나노입자 금나노입자 양자점 약물전달 mrna 백신">
+    <h3><span class="no">15</span>나노공학 활용 <span class="area-chip">몸을 보고 만드는 기술</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>머리카락 굵기의 수만 분의 1 크기인 아주 작은 알갱이를 만들어서 쓰는 기술입니다. 이렇게 작아지면 같은 물질도 성질이 달라지고, 몸속에서 약을 필요한 곳까지 실어 나르는 '작은 택배 상자'로 쓸 수 있습니다.</div>
+    <div class="terms">
+      <div class="row"><div>나노(nm)</div><div>1 nm = 10억분의 1 m. 나노공학은 대략 1~100 nm 크기의 물질을 다룹니다.</div></div>
+      <div class="row"><div>리포좀</div><div>인지질 이중막으로 된 작은 주머니. 약물을 담아 전달합니다.</div></div>
+      <div class="row"><div>지질 나노입자(LNP)</div><div>mRNA 등을 감싸 세포로 전달하는 나노입자.</div></div>
+      <div class="row"><div>양자점</div><div>빛을 내는 아주 작은 반도체 입자. 형광 영상에 이용됩니다.</div></div>
+    </div>
+    <h4>어디에 쓰일까요?</h4>
+    <ul>
+      <li><b>약물 전달체</b>: 리포좀(항암제 독소루비신 리포좀 제제 Doxil, 1995년 FDA 승인), 지질 나노입자(코로나19 mRNA 백신에 사용)</li>
+      <li><b>진단</b>: <b>금 나노입자</b>를 이용한 신속 진단 키트(임신 진단 키트, 신속 항원 검사 등), <b>양자점</b> 형광 영상</li>
+      <li><b>바이오센서</b>: 나노 소재로 아주 적은 양의 생체 물질을 감지</li>
+      <li><b>조직공학</b>: 나노섬유 지지체로 세포가 자라는 환경 제공</li>
+      <li><b>항균</b>: 은 나노입자 이용</li>
+    </ul>
+    <h4>약물 전달은 어떻게 이루어질까요?</h4>
+    <ol class="steps">
+      <li>나노입자에 약물을 담습니다.</li>
+      <li>표면에 표적 분자(항체 등)를 붙여 특정 세포를 인식하게 합니다.</li>
+      <li>혈관을 통해 이동해 표적 조직에 모입니다. (종양은 혈관이 허술해 쌓이기 쉽다는 EPR 효과 설명이 있으나 사람에서의 효과 크기는 논쟁이 있습니다.)</li>
+      <li>약물을 방출합니다.</li>
+    </ol>
+    <div class="warn"><b>알아둘 점</b> 나노입자가 몸속에 쌓이거나 환경에 방출될 때의 <b>안전성·독성 평가</b>가 중요한 과제입니다. 크기가 작아 생기는 새로운 성질은 장점인 동시에 위험 요인이 될 수 있습니다.</div>
+  </div>
+
+  <!-- 16 -->
+  <div class="topic" id="t16" data-k="조직 배양 식물 동물 당근 캘러스 전능성 세포배양 미생물 탈분화">
+    <h3><span class="no">16</span>조직 배양 <span class="area-chip">세포를 다루는 기술</span></h3>
+    <div class="easy"><b class="t">쉽게 말하면</b>식물이나 동물의 아주 작은 조각을 떼어서 영양분이 든 깨끗한 용기에서 키우는 기술입니다. 당근 조각 하나로 새 당근 식물 한 그루를 키울 수 있는 것이 대표적인 예입니다.</div>
+    <div class="terms">
+      <div class="row"><div>조직 배양</div><div>식물이나 동물의 조직·세포를 떼어 무균 배지에서 키우는 기술.</div></div>
+      <div class="row"><div>배지</div><div>세포가 자라는 데 필요한 영양분을 담은 재료.</div></div>
+      <div class="row"><div>캘러스</div><div>분화되지 않은 식물 세포 덩어리.</div></div>
+      <div class="row"><div>탈분화·재분화</div><div>분화한 세포가 분화 이전 상태로 돌아가는 것 / 다시 특정 세포로 분화하는 것.</div></div>
+      <div class="row"><div>전능성</div><div>하나의 세포가 완전한 개체로 자랄 수 있는 능력.</div></div>
+    </div>
+    <h4>어떻게 이루어질까요? (식물 조직 배양, 당근 예: 1958년 스튜어드)</h4>
+    <ol class="steps">
+      <li>당근 뿌리의 작은 조각을 떼어 <b>무균 배지</b>에 놓습니다.</li>
+      <li>세포가 증식해 <b>캘러스</b>가 됩니다.</li>
+      <li>식물 호르몬(옥신, 사이토키닌) 비율을 조절하면 뿌리와 싹이 분화합니다.</li>
+      <li>작은 식물체로 자라면 흙에 옮겨 키웁니다.</li>
+      <li>원래 당근과 <b>유전적으로 같은 완전한 식물체</b>(잎, 줄기, 뿌리)가 됩니다.</li>
+    </ol>
+    <h4>어디에 쓰일까요?</h4>
+    <ul><li>우량 품종 대량 증식(난초, 딸기 등), 바이러스 없는 묘 생산</li><li>동물에서는 줄기세포 증식, 피부 배양 이식, 배양육, 단일클론항체를 만드는 세포의 배양</li></ul>
+    <h4>세 가지 배양 비교</h4>
+    <div class="tw"><table>
+      <tr><th>구분</th><th>미생물 배양(발효)</th><th>식물 조직 배양</th><th>동물 세포·조직 배양</th></tr>
+      <tr><td>대상</td><td>대장균, 효모</td><td>식물 조각</td><td>동물 세포, 줄기세포</td></tr>
+      <tr><td>목적</td><td>미생물이 만드는 <b>물질</b>(인슐린 등)</td><td><b>식물체</b> 얻기</td><td>세포 증식, <b>조직</b> 얻기</td></tr>
+      <tr><td>개체가 되나</td><td>해당 없음</td><td>예</td><td>아니요</td></tr>
+      <tr><td>예</td><td>재조합 인슐린</td><td>무병 묘 생산</td><td>줄기세포 배양, 배양육</td></tr>
+    </table></div>
+    <details><summary>대장균 인슐린 생산은 조직 배양인가요? 대량 생산과 무엇이 다른가요?</summary><div class="ans">아닙니다. 대장균은 조직을 이루지 않는 단세포 생물이라 <b>미생물 배양(발효)</b>이라고 합니다. 대장균 인슐린은 미생물을 키워 <b>물질</b>을 많이 얻는 것이고, 조직 배양은 세포를 늘려 <b>식물체나 조직</b>을 얻는 것입니다. 조직 배양의 핵심은 "크기를 크게 키우는 것"이 아닙니다. 특히 동물 조직은 혈관이 없어 산소와 영양이 속까지 닿지 못해 두껍게 키우기 어렵습니다.</div></details>
+    <details><summary>동물의 조직도 배양하면 원래 동물이 되나요?</summary><div class="ans">아닙니다. 동물의 피부나 근육 조직을 배양하면 그 조직의 세포가 늘어날 뿐 동물 한 마리가 되지는 않습니다. 개체를 만들려면 조직 배양이 아니라 <b>핵이식</b>(8번) 같은 별도 기술이 필요합니다.</div></details>
+    <details><summary>왜 식물은 작은 조각이 개체 전체가 되는데 동물은 안 되나요?</summary><div class="ans"><b>식물</b>: 분화한 세포도 호르몬 조건에서 분화 이전 상태로 돌아가(탈분화) 다시 증식하고 분화할 수 있습니다(전능성). 식물은 평생 자라는 생물이고 움직이지 못해 재생 능력이 발달했습니다.<br><b>동물</b>: 체세포는 분화하면서 켜지고 꺼진 유전자의 상태가 단단히 고정(후성유전)됩니다. 개체 발생에는 난자 세포질 환경이 필요해, 체세포를 배양하는 것만으로는 개체가 되지 않고 핵이식 같은 별도 기술이 필요합니다.<br>다만 동물도 불가능한 것은 아닙니다. 핵이식, 역분화(iPS), 도롱뇽·플라나리아의 재생이 예입니다. iPS 세포는 다능성이지 전능성은 아니라서 그 자체로 개체가 되지는 않습니다. 식물도 종, 부위, 배지 조건에 따라 잘 되기도, 어렵기도 합니다.</div></details>
+  </div>
+</section>
+
+<!-- ===================== 비교 ===================== -->
+<section class="area" id="compare">
+  <h2>헷갈리는 개념 한눈에 비교</h2>
+  <div class="topic">
+    <h3>유전자 재조합 · 형질전환 · 세포융합 · 핵이식</h3>
+    <div class="tw"><table>
+      <tr><th>기술</th><th>무엇을 하나</th><th>다루는 단위</th><th>예</th></tr>
+      <tr><td>유전자 재조합</td><td>DNA를 자르고 이어 붙여 새 DNA를 만듦</td><td>DNA 조각(유전자)</td><td>인슐린 유전자가 든 플라스미드</td></tr>
+      <tr><td>형질전환</td><td>외래 DNA를 세포에 넣어 형질을 바꿈</td><td>DNA를 세포 안으로</td><td>재조합 플라스미드를 대장균에 넣기</td></tr>
+      <tr><td>세포융합</td><td>두 세포를 하나로 합침</td><td>세포 전체</td><td>하이브리도마(단일클론항체)</td></tr>
+      <tr><td>핵이식</td><td>핵을 제거한 난자에 다른 세포의 핵을 넣음</td><td>핵(유전체 전체)</td><td>복제 양 돌리</td></tr>
+    </table></div>
+    <div class="oneline"><b>비유</b>: 재조합은 책의 한 쪽을 오려 다른 책에 붙이는 편집, 형질전환은 편집한 책을 도서관에 들여놓기, 세포융합은 두 도서관을 하나로 합치기, 핵이식은 도서관의 모든 책을 통째로 복사해 옮기기입니다.</div>
+    <div class="note">감수분열 때 일어나는 <b>교차에 의한 유전자 재조합</b>은 자연 현상으로, 생명공학의 유전자 재조합 기술과는 다른 맥락입니다. 세균·효모에는 형질전환, 동물 세포에는 형질감염(transfection)이라고 부르는 경우가 많습니다.</div>
+  </div>
+  <div class="topic">
+    <h3>수업에서 자주 나오는 오해 8가지</h3>
+    <div class="tw"><table>
+      <tr><th>주제</th><th>흔한 오해</th><th>바른 설명</th></tr>
+      <tr><td>2) 텔로미어</td><td>길면 오래 산다</td><td>노화와 관련된 여러 요인 중 하나</td></tr>
+      <tr><td>6) 세포융합·면역세포치료</td><td>같은 기술이다</td><td>세포융합은 세포를 합침, CAR-T는 유전자 도입</td></tr>
+      <tr><td>7) 인슐린</td><td>사람 유전자를 그대로 대장균에 넣는다</td><td>인트론이 없는 cDNA를 사용</td></tr>
+      <tr><td>8) 핵이식</td><td>복제 동물은 완전히 똑같다</td><td>핵 DNA만 같고 미토콘드리아 DNA·환경은 다름</td></tr>
+      <tr><td>9·10) 식물 공장·스마트팜</td><td>같은 말이다</td><td>스마트팜이 더 넓은 개념</td></tr>
+      <tr><td>5) 줄기세포</td><td>모든 줄기세포는 모든 세포가 된다</td><td>분화 능력에 따라 구분</td></tr>
+      <tr><td>13) CT</td><td>생명공학 기술이다</td><td>의료 영상 기술이며 생명공학과 연계되어 활용</td></tr>
+      <tr><td>16) 조직 배양</td><td>동물도 조직 배양하면 개체가 된다</td><td>식물만 가능, 동물은 핵이식 등 별도 기술 필요</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ===================== 퀴즈 ===================== -->
+<section class="area" id="quizsec">
+  <h2>확인 퀴즈</h2>
+  <p class="lead">보기를 눌러 답을 확인하세요. 정답 수: <span id="score">0</span> / <span id="total">0</span></p>
+  <div id="quiz" class="quiz"></div>
+</section>
+
+<!-- ===================== 탐구 ===================== -->
+<section class="area" id="inquiry">
+  <h2>더 깊이 탐구해 볼 질문</h2>
+  <p class="lead">정답이 하나로 정해지지 않은 질문입니다. 조사하고 토론해 보세요.</p>
+  <div class="topic">
+    <ol>
+      <li><b>배양육 vs 곤충육 vs 기존 육류</b>: 환경, 비용, 안전성, 거부감을 기준으로 비교표를 만들어 보세요.</li>
+      <li><b>유전자 치료의 경계</b>: 질병 치료를 위한 편집과 능력 향상을 위한 편집은 어디서 나눠야 할까요? 생식세포 편집을 금지하는 이유는 무엇일까요?</li>
+      <li><b>줄기세포 치료 광고</b>: 효과가 입증되지 않은 줄기세포 시술 광고를 어떻게 판단할까요? 어떤 근거를 확인해야 할까요?</li>
+      <li><b>합성생물의 안전 관리</b>: 인공 유전체 생물이 실험실 밖으로 나가는 것을 막으려면 어떤 장치가 필요할까요?</li>
+      <li><b>바이오프린팅의 다음 과제</b>: 혈관을 만드는 문제를 해결하려면 어떤 기술이 필요할까요?</li>
+      <li><b>식물과 동물의 재생</b>: 식물은 조각에서 개체가 되는데 사람은 왜 손가락 재생이 안 될까요? 도롱뇽의 재생 원리를 조사해 보세요.</li>
+      <li><b>CT와 MRI 선택</b>: 교통사고 응급 환자와 무릎 인대 손상 환자에게 각각 어떤 검사가 적합할까요? 이유를 설명해 보세요.</li>
+      <li><b>스마트팜의 데이터</b>: 스마트팜은 어떤 데이터를 수집하고, 어떤 판단을 AI에게 맡길 수 있을까요?</li>
+      <li><b>나노입자의 양면성</b>: 약물 전달에 유리한 나노 크기의 성질이 환경·인체에 위험이 될 수 있는 이유는 무엇일까요?</li>
+      <li><b>텔로미어와 암</b>: 정상 세포는 분열 횟수에 한계가 있는데 암세포는 왜 무한 분열할 수 있을까요?</li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p><b>참고 및 주의</b>: 이 자료의 수치·연도·승인 사례는 작성 시점의 일반적인 설명이며, 의학·식품 규제 등 변동 가능한 내용은 식약처, FDA 등 공식 자료로 최종 확인하세요. 모식도는 개념을 보여 주기 위해 단순화한 것입니다. 실제 사진은 Wikimedia Commons의 이미지이며, 라이선스와 저작자는 각 파일 페이지에서 확인할 수 있습니다. 실제 의료·식품 정보는 전문가와 공식 기관의 안내를 따르세요.</p>
+</footer>
+
+<script>
+const quiz=[
+ {q:"[기초] 세포, 핵, 염색체, DNA, 유전자를 큰 것부터 순서대로 나열한 것은?",o:["세포 → 핵 → 염색체 → DNA → 유전자","세포 → 유전자 → DNA → 염색체 → 핵","핵 → 세포 → DNA → 유전자 → 염색체","유전자 → DNA → 염색체 → 핵 → 세포"],a:0,e:"세포 ⊃ 핵 ⊃ 염색체 ⊃ DNA ⊃ 유전자 순서입니다. 유전자는 DNA의 한 구간입니다."},
+ {q:"[기초] DNA에서 염기 G와 짝을 이루는 염기와 수소 결합 개수는?",o:["C, 3개","T, 2개","A, 3개","C, 2개"],a:0,e:"G–C는 수소 결합 3개, A–T는 2개입니다."},
+ {q:"[기초] 게놈에 대한 설명으로 가장 알맞은 것은?",o:["염색체 하나와 같은 말이다","한 생물이 가진 DNA 전체(유전자와 유전자가 아닌 구간 포함)이다","유전자 하나를 말한다","핵을 말한다"],a:1,e:"염색체는 DNA를 포장한 구조이고, 게놈은 DNA 정보의 전체 범위입니다."},
+ {q:"1) 합성생물학의 사이클을 순서대로 나타낸 것은?",o:["설계 → 제작 → 시험 → 학습","시험 → 제작 → 설계 → 학습","제작 → 학습 → 설계 → 시험","학습 → 시험 → 제작 → 설계"],a:0,e:"설계-제작-시험-학습을 반복하며 유전 부품과 유전체를 만들어 갑니다."},
+ {q:"2) 텔로미어에 대한 설명으로 알맞은 것은?",o:["염색체 말단에 있으며 세포가 분열할 때마다 짧아진다","염색체 가운데에 있는 유전자이다","세포 분열 때 늘어나기만 한다","미토콘드리아의 구조이다"],a:0,e:"텔로미어는 염색체 말단의 반복 서열로, 분열할 때마다 조금씩 짧아집니다. 텔로머레이스가 이를 늘려 줍니다."},
+ {q:"3) 배양육을 만들 때 주로 쓰는 세포는?",o:["근위성세포(근육 줄기세포)","적혈구","정자","뉴런"],a:0,e:"근육 속 성체줄기세포인 근위성세포를 배양·분화시켜 근육 조직을 얻습니다."},
+ {q:"4) 식용곤충에 대한 설명으로 알맞은 것은?",o:["단백질이 많고 가축보다 사료 전환 효율이 높은 편이다","단백질이 거의 없다","알레르기가 전혀 없다","모든 곤충을 먹을 수 있다"],a:0,e:"식용곤충은 단백질이 풍부하지만, 갑각류 알레르기가 있는 사람은 교차 반응에 주의해야 합니다. 식품공전에 등재된 종만 식품으로 쓸 수 있습니다."},
+ {q:"5) 다음 중 다능성(pluripotent) 줄기세포는?",o:["조혈모세포","근위성세포","유도만능줄기세포(iPS)","각막 줄기세포"],a:2,e:"배아줄기세포와 iPS가 다능성입니다. 성체줄기세포는 대부분 다분화능이거나 단분화능입니다."},
+ {q:"5) 줄기세포 치료로 현재 실제 사용되는 것은?",o:["잘린 손가락 재생","조혈모세포 이식","뇌 전체 재생","팔 다시 만들기"],a:1,e:"조혈모세포 이식은 백혈병 등에 널리 쓰이는 줄기세포 치료입니다."},
+ {q:"5) 근육 운동 후 근비대에 대한 설명으로 가장 알맞은 것은?",o:["근육 손상이 클수록 항상 더 커진다","핵심 자극은 근섬유에 걸리는 장력이고, 손상은 부수적이다","근섬유 수가 크게 늘어나 커진다","근위성세포는 아무 역할이 없다"],a:1,e:"근비대의 핵심 자극은 장력이며 손상은 필수 조건이 아닙니다. 근위성세포는 복구와 성장에 기여합니다."},
+ {q:"6) CAR-T 치료제는 어떤 기술에 해당하나요?",o:["세포융합","핵이식","유전자 도입으로 변형한 면역세포치료","조직 배양"],a:2,e:"CAR-T는 T세포에 CAR 유전자를 도입한 면역세포치료제입니다. 세포융합이 아닙니다."},
+ {q:"6) 단일클론항체를 만들 때 융합하는 두 세포는?",o:["B림프구와 골수종 세포","T세포와 암세포","난자와 정자","줄기세포와 섬유아세포"],a:0,e:"B림프구와 골수종 세포를 융합한 하이브리도마가 한 종류의 항체를 대량 생산합니다."},
+ {q:"7) 재조합 인슐린을 만들 때 DNA를 자르는 효소와 붙이는 효소를 순서대로 고르면?",o:["연결효소, 제한효소","제한효소, 연결효소","역전사효소, 제한효소","제한효소, 텔로머레이스"],a:1,e:"제한효소로 자르고 DNA 연결효소(리가아제)로 붙입니다."},
+ {q:"7) 대장균에 사람 인슐린 유전자를 넣을 때 cDNA를 쓰는 이유는?",o:["cDNA가 더 짧아서","대장균은 인트론을 제거하지 못해서","사람 DNA는 대장균에 들어갈 수 없어서","항생제 내성 때문에"],a:1,e:"원핵생물인 대장균은 RNA에서 인트론을 제거하지 못하므로 인트론이 없는 cDNA를 씁니다."},
+ {q:"7) 재조합 인슐린은 어떻게 대량 생산하나요?",o:["돼지에 대장균을 주입한다","돼지 췌장에서 추출한다","재조합 대장균을 발효 탱크에서 배양한다","사람의 췌장 세포를 채취한다"],a:2,e:"재조합 대장균(또는 효모)을 대형 발효 탱크에서 배양해 인슐린을 얻습니다."},
+ {q:"8) 복제 양 돌리를 만드는 데 쓰인 기술은?",o:["세포융합","체세포 핵이식","유전자 치료","조직 배양"],a:1,e:"유선 세포의 핵을 탈핵한 난자에 넣는 체세포 핵이식입니다."},
+ {q:"9) 식물 공장에서 광합성에 주로 효율적으로 쓰이는 LED 색은?",o:["녹색과 노란색","청색과 적색","흰색만","자외선"],a:1,e:"식물은 청색광(약 450nm)과 적색광(약 660nm)을 광합성에 잘 이용합니다."},
+ {q:"10) 스마트팜에 대한 설명으로 알맞은 것은?",o:["센서·IoT·AI로 환경을 측정하고 자동으로 관리하는 농업","반드시 건물 안에서 LED만 쓰는 농업","농약을 쓰지 않는 농업만 가리킨다","사람이 전혀 필요 없는 농업"],a:0,e:"스마트팜은 ICT를 접목한 농업의 넓은 개념이며, 식물 공장도 포함할 수 있습니다."},
+ {q:"11) 형질전환 동물의 특징으로 알맞은 것은?",o:["외래 유전자가 다음 세대에도 유전된다","외래 유전자가 한 세대만 유지된다","유전자 없이 약만 투여한다","항상 복제 동물이다"],a:0,e:"형질전환 동물은 도입한 외래 유전자가 생식세포를 통해 다음 세대로 유전됩니다."},
+ {q:"12) 체세포 유전자 치료와 생식세포 편집의 차이는?",o:["생식세포 편집은 후손에게 유전될 수 있어 대부분 임상 적용이 금지된다","체세포 치료는 후손에게 유전된다","둘은 같다","생식세포 편집이 일반 치료이다"],a:0,e:"체세포 치료는 환자 본인에게만 영향을 주지만, 생식세포 편집은 후손에게 유전될 수 있어 윤리 문제로 금지됩니다."},
+ {q:"13) CT와 MRI의 차이로 알맞은 것은?",o:["CT는 자기장, MRI는 X선을 쓴다","CT는 X선, MRI는 자기장과 라디오파를 쓴다","둘 다 X선을 쓴다","둘 다 방사선 피폭이 없다"],a:1,e:"CT는 X선(방사선 피폭 있음), MRI는 강한 자기장과 라디오파(전리 방사선 없음)를 이용합니다."},
+ {q:"13) CT 촬영 전 공복을 요구하는 주된 이유는?",o:["영상이 파랗게 나오게 하려고","조영제로 인한 구토 위험과 복부 영상 방해를 줄이려고","X선이 음식을 통과하지 못해서","혈당을 높이려고"],a:1,e:"조영제 부작용(구토) 때 흡인 위험을 줄이고, 복부 영상에서 위장 내용물이 방해하지 않게 하기 위함입니다."},
+ {q:"14) 바이오프린팅에서 '세포가 출력 재료'라는 말의 의미는?",o:["플라스틱에 세포를 칠한다","세포를 하이드로겔과 섞은 바이오잉크로 층층이 쌓는다","세포를 녹여서 금속으로 만든다","프린터가 세포를 만들어 낸다"],a:1,e:"세포와 하이드로겔을 섞은 바이오잉크를 설계도대로 쌓고, 배양해서 조직으로 성숙시킵니다."},
+ {q:"15) 나노(nm)에 대한 설명으로 알맞은 것은?",o:["1 nm는 10억분의 1 m이다","1 nm는 1000분의 1 m이다","1 nm는 1 cm이다","나노공학은 1 mm 이상 물질만 다룬다"],a:0,e:"1 nm = 10억분의 1 m이며, 나노공학은 대략 1~100 nm 크기의 물질을 다룹니다."},
+ {q:"16) 당근 조각에서 완전한 당근 식물을 얻는 기술은?",o:["식물 조직 배양","핵이식","세포융합","바이오프린팅"],a:0,e:"식물 조직 배양은 캘러스를 거쳐 완전한 식물체를 만들 수 있습니다(전능성)."},
+ {q:"16) 동물 조직을 배양하면 얻을 수 있는 것은?",o:["동물 한 마리","세포와 조직(개체는 아님)","식물체","바이러스 없는 묘"],a:1,e:"동물의 조직·세포를 배양하면 세포와 조직을 얻지만 개체를 만들지는 못합니다. 개체는 핵이식 등이 필요합니다."}
+];
+const qbox=document.getElementById('quiz');let score=0;
+document.getElementById('total').textContent=quiz.length;
+quiz.forEach((it,i)=>{
+  const d=document.createElement('div');d.className='q';
+  d.innerHTML='<b>Q'+(i+1)+'. '+it.q+'</b><div class="opts"></div><div class="fb"></div>';
+  const opts=d.querySelector('.opts');let answered=false;
+  it.o.forEach((t,j)=>{
+    const b=document.createElement('button');b.textContent=t;
+    b.onclick=()=>{
+      if(answered)return;answered=true;
+      const fb=d.querySelector('.fb');
+      if(j===it.a){b.classList.add('ok');score++;fb.textContent='정답입니다. '+it.e;}
+      else{b.classList.add('no');opts.children[it.a].classList.add('ok');fb.textContent='아쉬워요. 정답은 "'+it.o[it.a]+'"입니다. '+it.e;}
+      document.getElementById('score').textContent=score;
+    };
+    opts.appendChild(b);
+  });
+  qbox.appendChild(d);
+});
+const s=document.getElementById('search');
+s.addEventListener('input',()=>{
+  const k=s.value.trim().toLowerCase();
+  document.querySelectorAll('.topic').forEach(t=>{
+    if(!k){t.classList.remove('hidden');return;}
+    const text=(t.textContent+' '+(t.dataset.k||'')).toLowerCase();
+    t.classList.toggle('hidden',!text.includes(k));
+  });
+  document.querySelectorAll('section.area').forEach(a=>{
+    if(a.id==='map'||a.id==='quizsec')return;
+    const vis=a.querySelectorAll('.topic:not(.hidden)').length>0;
+    a.classList.toggle('hidden',k!==''&&!vis);
+  });
+});
+</script>
+</body>
+</html>
